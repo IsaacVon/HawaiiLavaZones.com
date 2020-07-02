@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Search from './components/lavaZoneSearch';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Search />,
   document.getElementById('root')
 );
 

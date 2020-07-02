@@ -24,7 +24,22 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Hawaii Big Island Lavazone</title>
+
+    <!-- I know this api key is public, this is the only way for the google dropdown suggestion menu to work. The key use is restricted from my Google account-->
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbgS1jZXTaK3g0A01QhXHM_iDTaxGAnhc&libraries=places"
+    ></script>
+    <script>
+      function init() {
+        var input = document.getElementById("addressInput");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+      }
+      google.maps.event.addDomListener(window, "load", init);
+    </script>
+
+    <script src='app.js'></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
