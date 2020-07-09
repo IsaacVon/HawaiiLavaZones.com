@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import Search from './components/lavaZoneSearch';
+import App from './App';
 
 ReactDOM.render(
-    <Search />,
+    <App />,
   document.getElementById('root')
 );
 
