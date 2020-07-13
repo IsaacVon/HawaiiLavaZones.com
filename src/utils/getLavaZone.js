@@ -1,13 +1,13 @@
 function getLavaZone(address) {
   // Take in address from html and encode it for the geoconverter url
-  address = encodeURI(document.getElementById("addressInput").value);
+  let encodedAddress = encodeURI(address);
 
   // START: Get Geo Coordinates from address 
   // Input: Address
   let apiKey = "AIzaSyAoDOYaQPAVKAgh3QAFDx-L4X5472UwppQ";
   let geoConvertUrl =
     "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-    address +
+    encodedAddress +
     "&key=" +
     apiKey;
 
@@ -32,11 +32,9 @@ function getLavaZone(address) {
         .then((data) => {
         // END: Get Lava Zone from Geo Coordinates
         // Output lavaZone
-
           let lavaZone = data.features[0].attributes.hzone;
-          console.log("Lava Zone " + lavaZone);
-          document.getElementById("lavaZone").innerHTML =
-            "Lava Zone " + lavaZone;
+          console.log("getLavaZone: " + lavaZone)
+          return lavaZone
         })
         .catch((e) => console.log(e));
     })

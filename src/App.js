@@ -4,7 +4,6 @@ import Nav from "./components/navBar";
 import LavaZoneInformation from "./pages/lavaZoneInformation";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
 function App() {
   return (
     <Router>
