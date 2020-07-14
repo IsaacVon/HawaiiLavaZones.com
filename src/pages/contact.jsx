@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-class Home extends Component {
+class Contact extends Component {
   state = {};
   render() {
     return (
       <>
-        <h1>Home</h1>
+        <h1>Contact</h1>
        </>
     );
   }
 }
 
-export default Home;
+export default Contact;

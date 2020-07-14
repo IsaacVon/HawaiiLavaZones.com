@@ -1,56 +1,100 @@
-import React, { Component } from "react";
-import "../App.css";
+import React from "react";
 import { Link } from "react-router-dom";
-import M from "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
-class Nav extends Component {
-  state = {};
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-  componentDidMount() {
-    console.log("nav mounted");
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.dropdown-trigger');
-      var instances = M.Dropdown.init(elems,);
-    });
-  }
-
-  render() {
-    return (
-      <>
-        <ul id="dropdown1" className="dropdown-content">
-          <li>
-            <a href="/LavaZoneInformation">Lava Zone Information</a>
-          </li>
-          <Link to="/LavaZoneInformation">
-          <li>
-            React Router
-          </li>
-          </Link>
-          <li className="divider"></li>
-          <li>
-            <a href="#!">three</a>
-          </li>
-        </ul>
-        <nav>
-          <div className="nav-wrapper #b2ebf2 cyan lighten-4">    
-     
-            <a href="/" className="brand-logo">
-              Logo
-            </a>
-  
-            <ul className="right hide-on-med-and-down">
-              <li>
-                <a className="dropdown-trigger" href="#!" data-target="dropdown1">
-                  More<i className="material-icons right">arrow_drop_down</i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </>
-    );
-  }
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`scrollable-auto-tabpanel-${index}`}
+      aria-labelledby={`scrollable-auto-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
 }
 
-export default Nav;
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `scrollable-auto-tab-${index}`,
+    "aria-controls": `scrollable-auto-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    width: "100%",
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+
+export default function ScrollableTabsButtonAuto() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
+        >
+          <Tab component={Link} to="/" label="Home" {...a11yProps(0)} />
+          <Tab
+            label="Check Address"
+            component={Link}
+            to="/Search"
+            {...a11yProps(1)}
+          />
+          <Tab
+            component={Link}
+            to="/ZoneInformation"
+            label="Zone Info"
+            {...a11yProps(2)}
+          />
+          <Tab
+            label="Contact"
+            component={Link}
+            to="/Contact"
+            {...a11yProps(3)}
+          />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0} />
+      <TabPanel value={value} index={1} />
+      <TabPanel value={value} index={2} />
+      <TabPanel value={value} index={3} />
+      <TabPanel value={value} index={4} />
+    </div>
+  );
+}

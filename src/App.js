@@ -1,7 +1,9 @@
 import React from "react";
-import Home from "./pages/home";
 import Nav from "./components/navBar";
-import LavaZoneInformation from "./pages/lavaZoneInformation";
+import Home from "./pages/home";
+import Search from "./pages/search"
+import ZoneInformation from "./pages/zoneInfo";
+import Contact from "./pages/contact"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -11,7 +13,10 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/LavaZoneInformation" component={LavaZoneInformation} />
+          <Route path="/Search" component={Search} />
+          <Route path="/ZoneInformation" component={ZoneInformation} />
+          <Route path="/Contact" component={Contact} />
+
         </Switch>
       </div>
     </Router>

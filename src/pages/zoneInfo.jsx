@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 
-class LavaZoneInformation extends Component {
+class ZoneInformation extends Component {
   componentDidMount() {
     console.log("lava zone mounted");
     document.addEventListener("DOMContentLoaded", function () {
@@ -137,4 +137,4 @@ class LavaZoneInformation extends Component {
   }
 }
 
-export default LavaZoneInformation;
+export default ZoneInformation;
