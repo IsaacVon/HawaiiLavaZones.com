@@ -6,7 +6,7 @@ class AddressSearch extends Component {
 
   handleInputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  };
+  }; 
 
   handleSearch = () => {
     let lavaZone = getLavaZone(this.state.address);
