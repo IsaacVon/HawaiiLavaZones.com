@@ -35,11 +35,8 @@ const marks = [
   },
 ];
 
-function valuetext(value) {
-  return `${value}°C`;
-}
 
-export default function DiscreteSlider() {
+export default function DiscreteSlider(props) {
   const classes = useStyles();
 
   return (
@@ -49,13 +46,14 @@ export default function DiscreteSlider() {
       </Typography>
       <Slider
         defaultValue={60}
-        getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-always"
         step={10}
         marks={marks}
         valueLabelDisplay="off"
         min={20}
         max={100}
+        name="time"
+        onChange={props.handleTimeDrag} 
       />
     </div>
   );

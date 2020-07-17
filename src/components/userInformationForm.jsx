@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Need to make this a "class Contact extends Component"
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
 
   return (
@@ -53,6 +53,8 @@ export default function SignIn() {
           <TextField
             variant="outlined"
             margin="normal"
+            name="address"
+            onChange={props.handleChange}
             fullWidth
             label="Property Address"
             autoFocus
@@ -60,47 +62,56 @@ export default function SignIn() {
           <TextField
             variant="outlined"
             margin="normal"
+            name="questions"
+            onChange={props.handleChange}
             fullWidth
             id="question"
             label="Questions"
-            name="question"
           />
-          <PriceSlider />
-          <TimeSlider />
+          <PriceSlider 
+            handlePriceDrag={props.handlePriceDrag}
+            />
+          <TimeSlider 
+           handleTimeDrag={props.handleTimeDrag}
+
+          />
           <TextField
             variant="outlined"
             margin="normal"
+            name="name"
+            onChange={props.handleChange}
             required
             fullWidth
             id="name"
             label="Name"
-            name="email"
             autoComplete="name"
           />
           <TextField
             variant="outlined"
             margin="normal"
+            name="phoneNumber"
+            onChange={props.handleChange}
             required
             fullWidth
             id="tel"
             label="Phone Number"
-            name="tel"
             autoComplete="tel"
           />
           <TextField
             variant="outlined"
             margin="normal"
+            name="emailAddress"
+            onChange={props.handleChange}
             required
             fullWidth
             id="email"
             label="Email Address"
-            name="email"
             autoComplete="email"
           />
 
           <Button
-            onClick={() => this.props.onSubmit}
-            type="submit"
+            onClick={props.handleSubmit}
+            type="button"
             fullWidth
             variant="contained"
             color="primary"

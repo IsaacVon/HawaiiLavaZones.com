@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import map from "../resources/map.jpg"
-
+import React, { Component } from "react";
 
 class Map extends Component {
-  state = {  }
-  render() { 
-    return ( 
+  state = {};
+  render() {
+    return (
       <>
-      <p>map</p>
-      <img src={map} alt="map" />;
+        <p>map</p>
+
       </>
-     );
+    );
   }
 }
- 
+
 export default Map;

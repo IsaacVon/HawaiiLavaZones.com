@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/core/Slider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,31 +15,28 @@ const useStyles = makeStyles((theme) => ({
 const marks = [
   {
     value: 20,
-    label: '$200k',
+    label: "$200k",
   },
   {
     value: 40,
-    label: '$400k',
+    label: "$400k",
   },
   {
     value: 60,
-    label: '$800k',
+    label: "$800k",
   },
   {
     value: 80,
-    label: '$1.5M',
+    label: "$1.5M",
   },
   {
     value: 100,
-    label: '$3M+',
+    label: "$3M+",
   },
 ];
 
-function valuetext(value) {
-  return `${value}°C`;
-}
 
-export default function DiscreteSlider() {
+export default function DiscreteSlider(props) {
   const classes = useStyles();
 
   return (
@@ -49,14 +46,17 @@ export default function DiscreteSlider() {
       </Typography>
       <Slider
         defaultValue={60}
-        getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-always"
         step={10}
         marks={marks}
         valueLabelDisplay="off"
         min={20}
         max={100}
+        name="price"
+        onChange={props.handlePriceDrag} 
       />
     </div>
   );
 }
+
+
