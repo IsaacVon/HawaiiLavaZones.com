@@ -66,7 +66,11 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          One to five percent of Zone 3 has been covered since 1800, and 15-75 percent has been covered within the last 750 years. Areas gradationally less hazardous than Zone 2 because of greater distance from recently active vents or because the topography makes it less likely that flows will cover these areas.
+            One to five percent of Zone 3 has been covered since 1800, and 15-75
+            percent has been covered within the last 750 years. Areas
+            gradationally less hazardous than Zone 2 because of greater distance
+            from recently active vents or because the topography makes it less
+            likely that flows will cover these areas.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -80,7 +84,12 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Zone 4 includes all of Hualalai. Moore and others estimate that large eruptions reach the ocean about once every 300 years, a recurrence interval significantly lower than for either Kilauea or Mauna Loa. Lave coverage is proportionally smaller, about 5 percent since 1800, and less than 15 percent within the last 750 years.          </Typography>
+            Zone 4 includes all of Hualalai. Moore and others estimate that
+            large eruptions reach the ocean about once every 300 years, a
+            recurrence interval significantly lower than for either Kilauea or
+            Mauna Loa. Lave coverage is proportionally smaller, about 5 percent
+            since 1800, and less than 15 percent within the last 750 years.{" "}
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -93,8 +102,10 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          An area on Kilauea currently protected from rift- or summit derived
-lava flows by north-facing fault scarps, south of the Kilauea summit.          </Typography>
+            An area on Kilauea currently protected from rift- or summit derived
+            lava flows by north-facing fault scarps, south of the Kilauea
+            summit.
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -107,7 +118,16 @@ lava flows by north-facing fault scarps, south of the Kilauea summit.          <
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Two areas on Mauna Loa, both protected from rift- or summit derived lava flows. The area south of the Mauna Loa summit is analogous to Kilauea's. The northwest flank of Mauna Loa is also protected from eruptions originating on the summit or rift. Three eruptions have originated hight on this flank in the last two centuries. Thus we have included the northwest flank in Zone 3. The area near the southernmost point of the island is protected from southwest rift zone eruptions by an entirely faulted topography. The lava underlying this Zone 6 are all older than 4,000 years.          </Typography>
+            Two areas on Mauna Loa, both protected from rift- or summit derived
+            lava flows. The area south of the Mauna Loa summit is analogous to
+            Kilauea's. The northwest flank of Mauna Loa is also protected from
+            eruptions originating on the summit or rift. Three eruptions have
+            originated hight on this flank in the last two centuries. Thus we
+            have included the northwest flank in Zone 3. The area near the
+            southernmost point of the island is protected from southwest rift
+            zone eruptions by an entirely faulted topography. The lava
+            underlying this Zone 6 are all older than 4,000 years.{" "}
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -120,7 +140,9 @@ lava flows by north-facing fault scarps, south of the Kilauea summit.          <
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Zone 7 is affected by the younger part of the dormant volcano Mauna Kea. Twenty percent of this area was covered by lave 3,500-5,000 years ago.
+            Zone 7 is affected by the younger part of the dormant volcano Mauna
+            Kea. Twenty percent of this area was covered by lave 3,500-5,000
+            years ago.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -134,7 +156,9 @@ lava flows by north-facing fault scarps, south of the Kilauea summit.          <
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Zone 8 is affected by the remaining part of Mauna Kea. Only a few percent of this area has been covered by lava in the last 10,000 years.
+            Zone 8 is affected by the remaining part of Mauna Kea. Only a few
+            percent of this area has been covered by lava in the last 10,000
+            years.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -148,7 +172,8 @@ lava flows by north-facing fault scarps, south of the Kilauea summit.          <
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Zone 9 is the least likely to be affected by lava. Kohala Volcano, which last erupted over 60,000 years ago.   
+            Zone 9 is the least likely to be affected by lava. Kohala Volcano,
+            which last erupted over 60,000 years ago.
           </Typography>
         </AccordionDetails>
       </Accordion>

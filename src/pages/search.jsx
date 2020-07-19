@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import AddressSearch from "../components/addressSearch"
-
+import AddressSearch from "../components/addressSearch";
 class Search extends Component {
   state = {};
   render() {

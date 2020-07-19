@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ZoneSpecificInfo from "../components/zoneSpecificInfo"
-import Map from "../components/zoneMap"
 import Container from '@material-ui/core/Container';
+import Map from "../components/googleMap"
 
 
 class Search extends Component {
@@ -11,8 +11,9 @@ class Search extends Component {
       <>
         <Container component="main" maxWidth="xs">
         <ZoneSpecificInfo />
-        <Map />
         </Container>
+        <Map />
+       
       </>
     );
   }
