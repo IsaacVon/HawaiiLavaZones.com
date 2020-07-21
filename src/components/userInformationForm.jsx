@@ -68,13 +68,8 @@ export default function SignIn(props) {
             id="question"
             label="Questions"
           />
-          <PriceSlider 
-            handlePriceDrag={props.handlePriceDrag}
-            />
-          <TimeSlider 
-           handleTimeDrag={props.handleTimeDrag}
-
-          />
+          <PriceSlider handlePriceDrag={props.handlePriceDrag} />
+          <TimeSlider handleTimeDrag={props.handleTimeDrag} />
           <TextField
             variant="outlined"
             margin="normal"
@@ -117,7 +112,7 @@ export default function SignIn(props) {
             color="primary"
             className={classes.submit}
           >
-            Submit
+            Talk to an expert
           </Button>
         </form>
       </div>
