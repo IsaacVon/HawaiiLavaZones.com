@@ -13,20 +13,22 @@ const mapContainerStyle = {
   height: "100vh",
 };
 
-const center = {
-  lat: 19.604196,
-  lng: -155.510799,
-};
-
 const options = {
   disableDefaultUI: true,
   zoomControl: true,
   mapTypeControl: true,
 };
 
-const onPlacesChanged = () => console.log(this.searchBox.getPlaces());
+
 
 export default function App(props) {
+
+  // Use pin from search for center if it is not null.
+  const defaultCenter = {lat: 19.647822, lng: -155.538050}
+  const pinCenter = {lat: props.lat, lng: props.lng}  
+  let center = props.lat ? pinCenter : defaultCenter 
+
+
   const { isLoaded, loadError } = useLoadScript({
     //googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     googleMapsApiKey: "AIzaSyCGJr4hqm5LtdMCGQo7mCZvO-HEvKV54DM",
@@ -40,6 +42,8 @@ export default function App(props) {
 
   return (
 
+
+
     <div>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
@@ -48,20 +52,22 @@ export default function App(props) {
         options={options}
       >
       <KmlLayer
-url="https://nightskybrightness.s3.eu-west- 
-3.amazonaws.com/artificialNightSkyBrightness_example.kml">
-</KmlLayer>
+      url="https://nightskybrightness.s3.eu-west- 
+      3.amazonaws.com/artificialNightSkyBrightness_example.kml">
+      </KmlLayer>
         <Marker
           position={{
             lat: props.lat,
             lng: props.lng,
           }}
         />
-        <StandaloneSearchBox onPlacesChanged={onPlacesChanged}>
+        <StandaloneSearchBox 
+              onPlacesChanged={props.onPlacesChanged}>
           <input
             type="text"
             placeholder="Search Address"
             name="searchAddress"
+            onChange={props.handleSearch} // update the state when you type something
             style={{
               boxSizing: `border-box`,
               border: `1px solid transparent`,
