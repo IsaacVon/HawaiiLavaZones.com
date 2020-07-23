@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AddressSearch from "../components/addressSearch";
 import GoogleMap from "../components/googleMap";
 import GeoLavaZone from "../components/geoLavaZone";
-import SearchBox from "../components/standAloneSearchBox";
 
 class Search extends Component {
   state = {
@@ -16,9 +15,6 @@ class Search extends Component {
     // I cannot get data from input to pull in here like in handle change. getPlaces
     console.log("onplaces changed working");
   };
-
-
-  
 
   handleLavaZoneUpdate = (event) => {
     this.setState({ lavaZone: event});
@@ -43,6 +39,7 @@ class Search extends Component {
   render() {
     return (
       <>
+  
         <GeoLavaZone 
           lat={this.state.lat} 
           lng={this.state.lng} 

@@ -1,7 +1,7 @@
 import React from "react";
 
 // Input: lat, lng
-// Output: LavaZone to state in search
+// Output: LavaZone to state in
 
 export default function geoLavaZone(props) {
   let geoLocationLat = props.lat;

@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import UserForm from "../components/userInformationForm";
+import UserForm from "../components/contactForm/userInformationForm";
+import GoogleSheet from "../components/contactForm/googleSheet"
 
 class Contact extends Component {
   state = {
     step: 1,
-    address: "",
+    investmentAddress: "",
     questions: "",
     name: "",
     phoneNumber: "",
     emailAddress: "",
-    price: 0,
-    time: "",
+    price: 800000,
+    time: 6,
   };
 
   handleTimeDrag = (event, time) => {
@@ -22,7 +23,7 @@ class Contact extends Component {
       this.setState({ time: 12 });
     } else if (time === 50) {
       this.setState({ time: 9 });
-    } else if (time === 60) {
+    } else if (time === 60 || time === "") {
       this.setState({ time: 6 });
     } else if (time === 70) {
       this.setState({ time: 4 });
@@ -61,12 +62,10 @@ class Contact extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state)
   };
 
   handleSubmit = () => {
-    // Connect to database later
-    console.log(this.state);
+    GoogleSheet(this.state);
   };
 
   render() {

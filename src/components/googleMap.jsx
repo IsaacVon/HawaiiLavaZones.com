@@ -62,7 +62,10 @@ export default function App(props) {
           }}
         />
         <StandaloneSearchBox 
-              onPlacesChanged={props.onPlacesChanged}>
+              onPlacesChanged={props.onPlacesChanged}
+              // Need some kind of ref in here
+              >
+
           <input
             type="text"
             placeholder="Search Address"

@@ -53,10 +53,10 @@ export default function SignIn(props) {
           <TextField
             variant="outlined"
             margin="normal"
-            name="address"
+            name="investmentAddress"
             onChange={props.handleChange}
+            label="Investment Property Address"
             fullWidth
-            label="Property Address"
             autoFocus
           />
           <TextField
