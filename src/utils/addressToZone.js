@@ -1,11 +1,14 @@
+import googleGeoAPI from "../apiKeys"
+
 function addressToZone(address) {
   address = encodeURI(address);
+
 
   // Geo Converter
   // Input: Address
   // Output: geoLocationLat, geoLocationLng
 
-  let apiKey = "AIzaSyAoDOYaQPAVKAgh3QAFDx-L4X5472UwppQ";
+  let apiKey = googleGeoAPI.googleGeoAPI;
   let geoConvertUrl =
     "https://maps.googleapis.com/maps/api/geocode/json?address=" +
     address +
@@ -30,6 +33,7 @@ function addressToZone(address) {
           let lavaZone = data.features[0].attributes.hzone;
           console.log("Lava Zone " + lavaZone);
           console.log("Lat: ", geoLocationLat, "Lng: ", geoLocationLng);
+
           return "Working"; // want to return lavaZone, geoLocationLat, geoLocationLng
         })
         .catch((e) => console.log(e));
