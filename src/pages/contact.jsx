@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import UserForm from "../components/contactForm/userInformationForm";
-import GoogleSheet from "../components/contactForm/googleSheet"
+import UserForm from "../components/contact/userInformationForm";
+import GoogleSheet from "../components/contact/googleSheet"
 
 class Contact extends Component {
   state = {
@@ -64,8 +64,14 @@ class Contact extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  validateState = () => {
+    // TBD hopyfully can use yup
+    let validated = true
+    return validated
+  }
+
   handleSubmit = () => {
-    GoogleSheet(this.state);
+        GoogleSheet(this.state);   
   };
 
   render() {

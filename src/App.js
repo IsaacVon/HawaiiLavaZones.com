@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Search from "./pages/search";
 import ZoneInformation from "./pages/zoneInfo";
 import Contact from "./pages/contact";
+import ThankYou from "./pages/thankyou";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/Search" component={Search} />
           <Route path="/ZoneInformation" component={ZoneInformation} />
           <Route path="/Contact" component={Contact} />
+          <Route path="/Submitted" component={ThankYou} />
         </Switch>
       </div>
     </Router>

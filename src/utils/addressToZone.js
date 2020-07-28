@@ -1,22 +1,19 @@
-function getLavaZone(address) {
-  // Take in address from html and encode it for the geoconverter url
-  let encodedAddress = encodeURI(address);
+function addressToZone(address) {
+  address = encodeURI(address);
 
-  // START: Get Geo Coordinates from address 
+  // Geo Converter
   // Input: Address
+  // Output: geoLocationLat, geoLocationLng
+
   let apiKey = "AIzaSyAoDOYaQPAVKAgh3QAFDx-L4X5472UwppQ";
   let geoConvertUrl =
     "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-    encodedAddress +
+    address +
     "&key=" +
     apiKey;
 
   fetch(geoConvertUrl)
     .then((response) => response.json())
-    // END: Get Geo Coordinates from address 
-    // Output Geo Coordinates: geoLocationLat, geoLocationLng
-
-    // START: Get Lava Zone from Geo Coordinates
     .then((data) => {
       let geoLocationLat = data.results[0].geometry.location.lat;
       let geoLocationLng = data.results[0].geometry.location.lng;
@@ -30,15 +27,14 @@ function getLavaZone(address) {
       fetch(lavaZoneUrl)
         .then((response) => response.json())
         .then((data) => {
-        // END: Get Lava Zone from Geo Coordinates
-        // Output lavaZone
           let lavaZone = data.features[0].attributes.hzone;
-          console.log("getLavaZone: " + lavaZone)
-          return lavaZone
+          console.log("Lava Zone " + lavaZone);
+          console.log("Lat: ", geoLocationLat, "Lng: ", geoLocationLng);
+          return "Working"; // want to return lavaZone, geoLocationLat, geoLocationLng
         })
         .catch((e) => console.log(e));
     })
     .catch((e) => console.log(e));
 }
 
-export { getLavaZone };
+export { addressToZone };

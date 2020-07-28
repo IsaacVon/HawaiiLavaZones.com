@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import AddressSearch from "../components/addressSearch";
 import GoogleMap from "../components/googleMap";
-import GeoLavaZone from "../components/geoLavaZone";
+import { addressToZone } from "../utils/addressToZone"
 
 class Search extends Component {
   state = {
@@ -11,19 +10,23 @@ class Search extends Component {
     lavaZone: 0,
   };
 
-  onPlacesChanged = (e) => {
-    // I cannot get data from input to pull in here like in handle change. getPlaces
-    console.log("onplaces changed working");
+  onPlacesChanged = () => {
+    let clickedAddress = document.getElementById("addressSearch").value
+    this.setState({ searchAddress: clickedAddress})
+    console.log("address to zone: ", addressToZone(clickedAddress))
   };
+
+  handleGeoUpdate = (event) => {
+    console.log(event)
+  }
 
   handleLavaZoneUpdate = (event) => {
     this.setState({ lavaZone: event});
-    console.log(this.state);
   };
   
   handleSearch = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state);
+    this.setState({ [event.target.name]: event.target.value });    
+    // Add callback here
   };
 
   handlePin = (event) => {
@@ -31,22 +34,11 @@ class Search extends Component {
     console.log(event);
   };
 
-  handleSubmit = () => {
-    // Connect to database later
-    console.log(this.state);
-  };
-
   render() {
     return (
       <>
-  
-        <GeoLavaZone 
-          lat={this.state.lat} 
-          lng={this.state.lng} 
-          handleLavaZoneUpdate={this.handleLavaZoneUpdate}
-        />
-
         <GoogleMap
+          searchAddress={this.state.searchAddress}
           lat={this.state.lat}
           lng={this.state.lng}
           handleSearch={this.handleSearch}
