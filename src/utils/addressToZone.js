@@ -1,8 +1,11 @@
 import googleGeoAPI from "../apiKeys";
 
-function addressToZone(address) {
+async function addressToZone(address) {
   const geoCoordinatesURL = buildGeoCoordinatesURL(address);
-  const geoCoordinates = requestGeoCoordinates(geoCoordinatesURL);
+  const geoCoordinates = await requestGeoCoordinates(geoCoordinatesURL);
+  console.log("geoCoordinates: ", geoCoordinates)
+
+
   // Need to add rest of functions this way... stuck on getting requestGeoCoordinates to return its data
 }
 
@@ -17,11 +20,21 @@ function buildGeoCoordinatesURL(address) {
   return geoConvertUrl;
 }
 
-function requestGeoCoordinates(geoConvertUrl) {
-  fetch(geoConvertUrl)
-    .then((response) => response.json())
-    .then((data) => buildLavaZoneURL(data))
-    .catch((e) => console.log(e));
+// function requestGeoCoordinates(geoConvertUrl) {
+//   fetch(geoConvertUrl)
+//     .then((response) => response.json())
+//     .then((data) => buildLavaZoneURL(data))
+//     .catch((e) => console.log(e));
+// }
+
+async function requestGeoCoordinates(geoConvertUrl) {
+  try {
+      const response = await fetch(geoConvertUrl);
+      const data = response.json();
+      return buildLavaZoneURL(data);
+  } catch (error) {
+      console.log('requestGeoCoordinates error', error);
+  }
 }
 
 function buildLavaZoneURL(data) {
