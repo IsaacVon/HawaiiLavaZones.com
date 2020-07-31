@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import GoogleMap from "../components/googleMap";
 import { addressToZone } from "../utils/addressToZone"
 
-class Search extends Component {
+class CheckAddress extends Component {
   state = {
     searchAddress: "",
     lat: 0,
@@ -59,4 +59,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default CheckAddress;

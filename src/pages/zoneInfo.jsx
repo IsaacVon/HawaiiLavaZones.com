@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ZoneSpecificInfo from "../components/zoneSpecificInfo"
 import Container from '@material-ui/core/Container';
 
-class Search extends Component {
+class ZoneInfo extends Component {
   state = {};
   render() {
     return (
@@ -17,4 +17,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default ZoneInfo;

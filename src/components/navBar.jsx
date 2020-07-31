@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
@@ -44,18 +45,28 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width: "100%",
+    width: "100vw",
     backgroundColor: theme.palette.background.paper,
   },
 }));
 
-export default function ScrollableTabsButtonAuto() {
+export default function ScrollableTabsButtonAuto(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+
+  const currentTab = () => {
+    let path = window.location.pathname
+    if (path === "/Search") return 1
+    else if (path === "/ZoneInformation") return 2
+    else if (path === "/Contact") return 3
+  }
+ 
+  const [value, setValue] = React.useState(currentTab); // This choses which one is highlighted
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
 
   return (
     <div className={classes.root}>
@@ -69,7 +80,11 @@ export default function ScrollableTabsButtonAuto() {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab component={Link} to="/" label="Home" {...a11yProps(0)} />
+          <Tab 
+            label="Home" 
+            component={Link} 
+            to="/"  
+            {...a11yProps(0)} />
           <Tab
             label="Check Address"
             component={Link}

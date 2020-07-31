@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./components/navBar";
 import Home from "./pages/home";
-import Search from "./pages/search";
+import CheckAddress from "./pages/checkAddress";
 import ZoneInformation from "./pages/zoneInfo";
 import Contact from "./pages/contact";
 import ThankYou from "./pages/thankyou";
@@ -14,7 +14,7 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/Search" component={Search} />
+          <Route path="/Search" component={CheckAddress} />
           <Route path="/ZoneInformation" component={ZoneInformation} />
           <Route path="/Contact" component={Contact} />
           <Route path="/Submitted" component={ThankYou} />
