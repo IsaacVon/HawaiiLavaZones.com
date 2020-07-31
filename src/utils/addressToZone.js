@@ -4,7 +4,8 @@ async function addressToZone(address) {
   try {
     const geoCoordinatesURL = buildGeoCoordinatesURL(address);
     const geoCoordinates = await requestGeoCoordinates(geoCoordinatesURL);
-    const lavaZoneUrl = buildLavaZoneURL(geoCoordinates);
+    const verifiedgeoCoordinates = verifyGeoCoordinates(geoCoordinates);
+    const lavaZoneUrl = buildLavaZoneURL(verifiedgeoCoordinates);
     const lavaZoneRaw = await requestLavaZoneRaw(lavaZoneUrl);
     const finalData = proccessFinalData(lavaZoneRaw, geoCoordinates);
     return finalData;
@@ -32,6 +33,35 @@ async function requestGeoCoordinates(geoConvertUrl) {
   } catch (error) {
     console.log("requestGeoCoordinates error: ", error);
   }
+}
+
+function verifyGeoCoordinates(geoCoordinates) {
+  // Hawaii Big Island Lat & Lng bounds
+  const lngMax = -154.7;
+  const lngMin = -156.1;
+  const latMax = 20.3;
+  const latMin = 18.7;
+
+  const geoLocationLng = geoCoordinates.results[0].geometry.location.lng;
+  const geoLocationLat = geoCoordinates.results[0].geometry.location.lat;
+
+  console.log(
+    "verifying GeoCoordinates... ",
+    "Lat: ",
+    geoLocationLat,
+    "Lng: ",
+    geoLocationLng
+  );
+
+  if (
+    geoLocationLng > lngMin &&
+    geoLocationLng < lngMax &&
+    geoLocationLat > latMin &&
+    geoLocationLat < latMax
+  ) {
+    console.log("Coordinates successfully verified...");
+    return geoCoordinates;
+  } else console.log("NOT IN HAWAII IDIOT");
 }
 
 function buildLavaZoneURL(data) {

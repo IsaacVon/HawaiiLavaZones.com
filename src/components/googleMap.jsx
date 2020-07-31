@@ -26,7 +26,6 @@ export default function App(props) {
   let center = props.lat ? pinCenter : defaultCenter;
 
   const { isLoaded, loadError } = useLoadScript({
-    //googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     googleMapsApiKey: "AIzaSyCGJr4hqm5LtdMCGQo7mCZvO-HEvKV54DM",
     libraries,
     // ID IS NOT WORKING
@@ -54,12 +53,8 @@ export default function App(props) {
             lng: props.lng,
           }}
         />
-        <StandaloneSearchBox
-          onPlacesChanged={props.onPlacesChanged}
-          // Need some kind of ref in here
-        >
+        <StandaloneSearchBox onPlacesChanged={props.onPlacesChanged}>
           <input
-            onChange={ props.handleSearch } // update the state when you type something
             type="text"
             id="addressSearch"
             placeholder="Search Address"
