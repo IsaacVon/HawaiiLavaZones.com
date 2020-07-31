@@ -13,13 +13,14 @@ class CheckAddress extends Component {
 
   onPlacesChanged = async () => {
     let clickedAddress = document.getElementById("addressSearch").value;
-    const data = await addressToZone(clickedAddress); // this needs to recieve error if address is wrong
+    const data = await addressToZone(clickedAddress);
 
     if (data === undefined) {
       console.log("onPlacesChanged - Address not hawaii");
       this.setState({
         addressValid: false,
       });
+
     } else {
       this.setState({
         addressValid: true,
