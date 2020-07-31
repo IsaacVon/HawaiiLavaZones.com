@@ -10,10 +10,19 @@ class Search extends Component {
     lavaZone: 0,
   };
 
-  onPlacesChanged = () => {
+  onPlacesChanged = async () => {
     let clickedAddress = document.getElementById("addressSearch").value
-    this.setState({ searchAddress: clickedAddress})
-    console.log("address to zone: ", addressToZone(clickedAddress))
+    // onPlacesChanged doesnt pass an argument
+    const data = await addressToZone(clickedAddress)
+    console.log("address to zone in search.jsx: ", data)
+    this.setState({ 
+      searchAddress: clickedAddress,
+      lat: data.geoLocationLat,
+      lng: data.geoLocationLng,
+      lavaZone: data.lavaZone
+    })
+   
+    
   };
 
   handleGeoUpdate = (event) => {
