@@ -1,9 +1,14 @@
 const { GoogleSpreadsheet } = require("google-spreadsheet");
+
 const doc = new GoogleSpreadsheet(
-  "1UZ7B_mVH1cN_IZ2ANODh6CHghkSu5m4_Ha3JmtvHwL0"
+  '1UZ7B_mVH1cN_IZ2ANODh6CHghkSu5m4_Ha3JmtvHwL0'
 );
 
+
+
 export default async function googleSheet(event) {
+
+
   await doc.useServiceAccountAuth({
     client_email:
       "lavazone-leads@natural-plasma-281719.iam.gserviceaccount.com",
@@ -12,6 +17,7 @@ export default async function googleSheet(event) {
   });
 
   await doc.loadInfo(); // loads document properties and worksheets
+  console.log(doc.title)
 
   const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
   console.log("Sheet title", sheet.title);

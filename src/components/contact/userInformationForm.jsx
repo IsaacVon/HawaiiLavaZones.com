@@ -31,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-
-
 export default function SignIn(props) {
   const classes = useStyles();
 
@@ -107,13 +103,14 @@ export default function SignIn(props) {
          
             
           />
-
+          {/* Disable this button until form is completed */}
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onSubmit={() => console.log("submitted")} // make this run handle submit
           >
             Talk to an expert
           </Button>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import UserForm from "../components/contact/userInformationForm";
-import GoogleSheet from "../components/contact/googleSheet"
+import UserInformationForm from "../components/contact/userInformationForm";
+import googleSheet from "../components/contact/googleSheet"
+import InputForm from "../components/InputForm/index"
 
 class Contact extends Component {
   state = {
@@ -71,13 +72,14 @@ class Contact extends Component {
   }
 
   handleSubmit = () => {
-        GoogleSheet(this.state);   
+        googleSheet(this.state);   
   };
 
   render() {
     return (
       <>
-        <UserForm
+        <InputForm />
+        <UserInformationForm
           step={this.state.step}
           address={this.state.address}
           questions={this.state.questions}
