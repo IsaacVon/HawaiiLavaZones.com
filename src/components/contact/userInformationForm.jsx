@@ -52,7 +52,6 @@ export default function SignIn(props) {
             onChange={props.handleChange}
             label="Investment Property Address"
             fullWidth
-            autoFocus
           />
           <TextField
             variant="outlined"

@@ -1,17 +1,26 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import PriceSlider from "../contact/priceSlider";
+import TimeSlider from "../contact/timeSlider";
 
-export const Form = props => {
+export const Form = (props) => {
   const {
-    values: { name, email, password, confirmPassword },
+    values: {
+      investmentAddress,
+      questions,
+      name,
+      email,
+      This, // verification package does now allow custom error messages
+
+    },
     errors,
     touched,
     handleChange,
     isValid,
-    setFieldTouched
+    setFieldTouched,
   } = props;
- 
+
   const change = (name, e) => {
     e.persist();
     handleChange(e);
@@ -24,6 +33,34 @@ export const Form = props => {
       }}
     >
       <TextField
+        variant="outlined"
+        id="investmentAddress"
+        name="investmentAddress"
+        helperText={touched.investmentAddress ? errors.investmentAddress : ""}
+        error={touched.investmentAddress && Boolean(errors.investmentAddress)}
+        label="Investment Property Address"
+        value={investmentAddress}
+        onChange={change.bind(null, "investmentAddress")}
+        fullWidth
+        autoFocus
+      />
+      <TextField
+        variant="outlined"
+        id="questions"
+        name="questions"
+        helperText={touched.questions ? errors.questions : ""}
+        error={touched.questions && Boolean(errors.questions)}
+        label="Questions"
+        value={questions}
+        onChange={change.bind(null, "questions")}
+        fullWidth
+      />
+
+      <PriceSlider handlePriceDrag={props.handlePriceDrag} />
+      <TimeSlider handleTimeDrag={props.handleTimeDrag} />
+
+      <TextField
+        variant="outlined"
         id="name"
         name="name"
         helperText={touched.name ? errors.name : ""}
@@ -32,9 +69,9 @@ export const Form = props => {
         value={name}
         onChange={change.bind(null, "name")}
         fullWidth
- 
       />
       <TextField
+        variant="outlined"
         id="email"
         name="email"
         helperText={touched.email ? errors.email : ""}
@@ -43,32 +80,20 @@ export const Form = props => {
         fullWidth
         value={email}
         onChange={change.bind(null, "email")}
- 
-      />
+      />      
       <TextField
-        id="password"
-        name="password"
-        helperText={touched.password ? errors.password : ""}
-        error={touched.password && Boolean(errors.password)}
-        label="Password"
+        variant="outlined"
+        id="This"
+        name="This"
+        helperText={touched.This ? errors.This : ""}
+        error={touched.This && Boolean(errors.This)}
+        label="Phone"
         fullWidth
-        type="password"
-        value={password}
-        onChange={change.bind(null, "password")}
- 
+        value={This}
+        onChange={change.bind(null, "This")}
       />
-      <TextField
-        id="confirmPassword"
-        name="confirmPassword"
-        helperText={touched.confirmPassword ? errors.confirmPassword : ""}
-        error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-        label="Confirm Password"
-        fullWidth
-        type="password"
-        value={confirmPassword}
-        onChange={change.bind(null, "confirmPassword")}
- 
-      />
+
+
       <Button
         type="submit"
         fullWidth
@@ -80,4 +105,4 @@ export const Form = props => {
       </Button>
     </form>
   );
- };
+};
