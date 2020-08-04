@@ -36,7 +36,7 @@ const marks = [
 ];
 
 
-export default function DiscreteSlider(props) {
+export default function PriceSlider(props) {
   const classes = useStyles();
 
   return (

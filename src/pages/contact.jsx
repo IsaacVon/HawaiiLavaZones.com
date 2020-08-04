@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import UserInformationForm from "../components/contact/userInformationForm";
-import googleSheet from "../components/contact/googleSheet"
-import InputForm from "../components/InputForm/index"
+import googleSheet from "../components/contact/googleSheet";
+import InputForm from "../components/InputForm/index";
 
 class Contact extends Component {
   state = {
@@ -38,8 +38,8 @@ class Contact extends Component {
   };
 
   handlePriceDrag = (event, price) => {
+    console.log("Pipe")
     this.setState({ price });
-
     if (price === 20) {
       this.setState({ price: 200000 });
     } else if (price === 30) {
@@ -65,21 +65,27 @@ class Contact extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  validateState = () => {
-    // TBD hopyfully can use yup
-    let validated = true
-    return validated
-  }
-
-  handleSubmit = () => {
-        googleSheet(this.state);   
+  handleSubmit = (data) => {
+    console.log(data);
+    this.setState({
+      investmentAddress: data.investmentAddress,
+      questions: data.questions,
+      name: data.name,
+      phoneNumber: data.This,
+      emailAddress: data.email,
+    });
+    // googleSheet(this.state);
   };
 
   render() {
     return (
       <>
-        <InputForm />
-        <UserInformationForm
+        <InputForm 
+          handleSubmit={this.handleSubmit} 
+          handlePriceDrag={this.handlePriceDrag}
+          handleTimeDrag={this.handleTimeDrag}
+        />
+        {/* <UserInformationForm
           step={this.state.step}
           address={this.state.address}
           questions={this.state.questions}
@@ -90,7 +96,7 @@ class Contact extends Component {
           handleTimeDrag={this.handleTimeDrag}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-        />
+        /> */}
       </>
     );
   }

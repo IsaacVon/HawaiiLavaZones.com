@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import PriceSlider from "../contact/priceSlider";
 import TimeSlider from "../contact/timeSlider";
+import Slider from "@material-ui/core/Slider";
 
 export const Form = (props) => {
   const {
@@ -11,26 +12,31 @@ export const Form = (props) => {
       questions,
       name,
       email,
-      This, // verification package does now allow custom error messages
-
+      This, // Phone verification package does now allow custom error messages
     },
     errors,
     touched,
     handleChange,
     isValid,
     setFieldTouched,
+    handleSubmit,
+    handlePriceDrag, // Having a hard time passing non standard props..
+    handleTimeDrag
+    
+    
   } = props;
-
+  
+  console.log("props render2: ", handleSubmit)
   const change = (name, e) => {
     e.persist();
     handleChange(e);
     setFieldTouched(name, true, false);
   };
+
+
   return (
     <form
-      onSubmit={() => {
-        alert("submitted");
-      }}
+      onSubmit={handleSubmit}
     >
       <TextField
         variant="outlined"
@@ -56,8 +62,12 @@ export const Form = (props) => {
         fullWidth
       />
 
-      <PriceSlider handlePriceDrag={props.handlePriceDrag} />
-      <TimeSlider handleTimeDrag={props.handleTimeDrag} />
+      <PriceSlider 
+      handlePriceDrag={handlePriceDrag} 
+      />
+      <TimeSlider 
+      handleTimeDrag={handleTimeDrag} 
+      />
 
       <TextField
         variant="outlined"
