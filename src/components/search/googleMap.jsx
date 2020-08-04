@@ -15,8 +15,8 @@ const mapContainerStyle = {
 
 const options = {
   disableDefaultUI: true,
-  zoomControl: true,
-  mapTypeControl: true,
+  zoomControl: false,
+  mapTypeControl: false,
 };
 
 export default function App(props) {
@@ -71,8 +71,8 @@ export default function App(props) {
               outline: `none`,
               textOverflow: `ellipses`,
               position: "absolute",
-              top: "10px",
-              right: "10px",
+              top: "60px",
+              left: "10px",
             }}
           />
         </StandaloneSearchBox>

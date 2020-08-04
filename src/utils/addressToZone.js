@@ -9,9 +9,7 @@ async function addressToZone(address) {
     const lavaZoneRaw = await requestLavaZoneRaw(lavaZoneUrl);
     const finalData = proccessFinalData(lavaZoneRaw, geoCoordinates);
     return finalData;
-  } catch (err) {
-    console.log("Error", err.message);
-  }
+  } catch (err) {}
 }
 
 function buildGeoCoordinatesURL(address) {
@@ -45,23 +43,14 @@ function verifyGeoCoordinates(geoCoordinates) {
   const geoLocationLng = geoCoordinates.results[0].geometry.location.lng;
   const geoLocationLat = geoCoordinates.results[0].geometry.location.lat;
 
-  console.log(
-    "verifying GeoCoordinates... ",
-    "Lat: ",
-    geoLocationLat,
-    "Lng: ",
-    geoLocationLng
-  );
-
   if (
     geoLocationLng > lngMin &&
     geoLocationLng < lngMax &&
     geoLocationLat > latMin &&
     geoLocationLat < latMax
   ) {
-    console.log("Coordinates successfully verified...");
     return geoCoordinates;
-  } else console.log("NOT IN HAWAII IDIOT");
+  } else;
 }
 
 function buildLavaZoneURL(data) {

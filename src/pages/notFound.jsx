@@ -4,7 +4,7 @@ class NotFound extends Component {
   state = {  }
   render() { 
     return ( 
-      <h1>Page not found!!</h1>
+      <h1>Oops... Page not found.</h1>
      );
   }
 }
