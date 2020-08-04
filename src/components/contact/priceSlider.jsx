@@ -45,6 +45,7 @@ export default function PriceSlider(props) {
         Price Point
       </Typography>
       <Slider
+        id="priceSlider"
         defaultValue={60}
         aria-labelledby="discrete-slider-always"
         step={10}

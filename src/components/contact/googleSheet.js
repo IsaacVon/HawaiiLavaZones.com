@@ -19,7 +19,7 @@ export default async function googleSheet(event) {
   await doc.loadInfo(); // loads document properties and worksheets
   console.log(doc.title)
 
-  const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+  const sheet = doc.sheetsByIndex[0];
   console.log("Sheet title", sheet.title);
   console.log("Sheet row count", sheet.rowCount);
   console.log("sheet update linked..", event);
@@ -33,5 +33,6 @@ export default async function googleSheet(event) {
     price: event.price,
     questions: event.questions,
     time: event.time,
+    timeStamp: (new Date()).toLocaleString(),
   });
 }

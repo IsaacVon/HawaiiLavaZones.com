@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import UserInformationForm from "../components/contact/userInformationForm";
 import googleSheet from "../components/contact/googleSheet";
-import InputForm from "../components/InputForm/index";
+import InputForm from "../components/contact/index";
 import SelectInput from "@material-ui/core/Select/SelectInput";
 import ThankYou from "../components/contact/thankYou";
 
@@ -15,6 +15,7 @@ class Contact extends Component {
     emailAddress: "",
     price: 800000,
     time: 6,
+    timeStamp: "",
   };
 
   handleTimeDrag = (event, time) => {
@@ -40,7 +41,7 @@ class Contact extends Component {
   };
 
   handlePriceDrag = (event, price) => {
-    console.log("Pipe");
+    console.log("Price Drag Working");
     this.setState({ price });
     if (price === 20) {
       this.setState({ price: 200000 });
@@ -77,7 +78,7 @@ class Contact extends Component {
       emailAddress: data.email,
       submitted: true,
     });
-    // googleSheet(this.state);
+    googleSheet(this.state);
   };
 
   render() {
