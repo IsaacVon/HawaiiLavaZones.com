@@ -3,7 +3,6 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import PriceSlider from "../contact/priceSlider";
 import TimeSlider from "../contact/timeSlider";
-import Slider from "@material-ui/core/Slider";
 
 export const Form = (props) => {
   const {
@@ -22,22 +21,20 @@ export const Form = (props) => {
     handleSubmit,
     handlePriceDrag, // Having a hard time passing non standard props..
     handleTimeDrag
-    
+
     
   } = props;
-  
-  console.log("props render2: ", handleSubmit)
-  const change = (name, e) => {
-    e.persist();
-    handleChange(e);
+
+  const change = (name, event) => {
+    event.persist();
+    handleChange(event);
     setFieldTouched(name, true, false);
   };
-
-
   return (
     <form
       onSubmit={handleSubmit}
     >
+      
       <TextField
         variant="outlined"
         id="investmentAddress"
@@ -60,10 +57,11 @@ export const Form = (props) => {
         value={questions}
         onChange={change.bind(null, "questions")}
         fullWidth
+        required
       />
 
       <PriceSlider 
-      handlePriceDrag={handlePriceDrag} 
+      handlePriceDrag={handlePriceDrag} // Props arent passing correctly 
       />
       <TimeSlider 
       handleTimeDrag={handleTimeDrag} 

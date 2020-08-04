@@ -57,6 +57,7 @@ export default function ScrollableTabsButtonAuto(props) {
     if (path === "/Search") return 1
     else if (path === "/ZoneInformation") return 2
     else if (path === "/Contact") return 3
+    else if (path === "/Submitted") return 3
   }
  
   const [value, setValue] = React.useState(currentTab); // This choses which one is highlighted

@@ -45,20 +45,20 @@ class InputForm extends Component {
 
  render() {
   
+   const classes = this.props;
    const values = { investmentAddress: "", questions: "", name: "", This: "", email: ""};
 
-   console.log("props render: ", this.props.handlePriceDrag)
    return (
      <React.Fragment>
-          <div className={this.props.container}>
-         <Paper elevation={1} className={this.props.paper}>
+          <div className={classes.container}>
+         <Paper elevation={1} className={classes.paper}>
            <h1>Form</h1>
            <Formik
              render={props => <Form {...props} />}
              initialValues={values}
              validationSchema={validationSchema}
              onSubmit={this.props.handleSubmit}
-             handlePriceDrag={this.props.handlePriceDrag} // Props arent passing to form correctly 
+             handlePriceDrag={this.props.handlePriceDrag} // Props arent passing correctly 
              handleTimeDrag={this.props.handleTimeDrag}
            />
          </Paper>

@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import CheckAddress from "./pages/checkAddress";
 import ZoneInformation from "./pages/zoneInfo";
 import Contact from "./pages/contact";
-import ThankYou from "./pages/thankyou";
+import NotFound from "./pages/notFound";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Route path="/Search" component={CheckAddress} />
           <Route path="/ZoneInformation" component={ZoneInformation} />
           <Route path="/Contact" component={Contact} />
-          <Route path="/Submitted" component={ThankYou} />
+          <Route path="/*" component={NotFound} />
         </Switch>
       </div>
     </Router>

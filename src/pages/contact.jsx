@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import UserInformationForm from "../components/contact/userInformationForm";
 import googleSheet from "../components/contact/googleSheet";
 import InputForm from "../components/InputForm/index";
+import SelectInput from "@material-ui/core/Select/SelectInput";
+import ThankYou from "../components/contact/thankYou";
 
 class Contact extends Component {
   state = {
-    step: 1,
+    submitted: false,
     investmentAddress: "",
     questions: "",
     name: "",
@@ -38,7 +40,7 @@ class Contact extends Component {
   };
 
   handlePriceDrag = (event, price) => {
-    console.log("Pipe")
+    console.log("Pipe");
     this.setState({ price });
     if (price === 20) {
       this.setState({ price: 200000 });
@@ -65,40 +67,45 @@ class Contact extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (data) => {
-    console.log(data);
+  handleSubmit = async (data) => {
+    console.log("Submitted");
     this.setState({
       investmentAddress: data.investmentAddress,
       questions: data.questions,
       name: data.name,
       phoneNumber: data.This,
       emailAddress: data.email,
+      submitted: true,
     });
     // googleSheet(this.state);
   };
 
   render() {
-    return (
-      <>
-        <InputForm 
-          handleSubmit={this.handleSubmit} 
-          handlePriceDrag={this.handlePriceDrag}
-          handleTimeDrag={this.handleTimeDrag}
-        />
-        {/* <UserInformationForm
-          step={this.state.step}
-          address={this.state.address}
-          questions={this.state.questions}
-          name={this.state.name}
-          phoneNumber={this.state.phoneNumber}
-          emailAddress={this.state.emailAddress}
-          handlePriceDrag={this.handlePriceDrag}
-          handleTimeDrag={this.handleTimeDrag}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        /> */}
-      </>
-    );
+    if (this.state.submitted) {
+      return <ThankYou name={this.state.name} />;
+    } else {
+      return (
+        <>
+          <InputForm
+            handleSubmit={this.handleSubmit}
+            handlePriceDrag={this.handlePriceDrag}
+            handleTimeDrag={this.handleTimeDrag}
+          />
+          <UserInformationForm
+            step={this.state.step}
+            address={this.state.address}
+            questions={this.state.questions}
+            name={this.state.name}
+            phoneNumber={this.state.phoneNumber}
+            emailAddress={this.state.emailAddress}
+            handlePriceDrag={this.handlePriceDrag}
+            handleTimeDrag={this.handleTimeDrag}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        </>
+      );
+    }
   }
 }
 
