@@ -6,6 +6,8 @@ import TimeSlider from "../contact/timeSlider";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,9 +45,16 @@ export const Form = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={classes.root}>
-        <Container maxWidth="sm" >
+        <Container maxWidth="sm">
           <Grid container justify="center" spacing={3}>
             <Grid item xs={12} />
+            <Grid item xs={12}>
+              <Typography>
+                If you have any questions regarding lava zones or real estate,
+                please leave your questions and contact information, and we will
+                reach out to you as soon as possible.
+              </Typography>
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 id="investmentAddress"
@@ -67,6 +76,7 @@ export const Form = (props) => {
               <TextField
                 id="questions"
                 name="questions"
+                multiline
                 helperText={touched.questions ? errors.questions : ""}
                 error={touched.questions && Boolean(errors.questions)}
                 label="Questions"
@@ -76,6 +86,7 @@ export const Form = (props) => {
                 fullWidth
               />
             </Grid>
+
             <Grid item xs={12}>
               <PriceSlider
                 handlePriceDrag={handlePriceDrag} // Props arent passing correctly
