@@ -41,7 +41,7 @@ export default function TimeSlider(props) {
 
   return (
     <div className={classes.root}>
-      <Typography id="discrete-slider-always" gutterBottom>
+      <Typography align="center" color="textSecondary" id="discrete-slider-always">
         Time Frame
       </Typography>
       <Slider

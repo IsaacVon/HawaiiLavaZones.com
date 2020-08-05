@@ -74,19 +74,20 @@ export default function NavBar(props) {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
 
   const tabProps = {
-    variant: isSmallScreen ? "scrollable" : "",
+    variant: isSmallScreen ? "scrollable" : "standard",
+    centered: isSmallScreen ? false : true
   };
 
   return (
-    <Container maxWidth="lg" style={{ backgroundColor: "green" }}>
-      <Paper className={classes.root}>
+    <Container maxWidth="lg" >
+      <Paper className={classes.root} elevation={2} mb={5}>
         <Tabs
           {...tabProps}
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          centered
+
         >
           <Tab label="Home" component={Link} to="/" icon={<FilterHdrOutlinedIcon />} {...a11yProps(0)} />
           <Tab
