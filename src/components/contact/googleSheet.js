@@ -17,13 +17,13 @@ export default async function googleSheet(event) {
   });
 
   await doc.loadInfo(); // loads document properties and worksheets
-  console.log(doc.title)
+  // console.log(doc.title)
 
   const sheet = doc.sheetsByIndex[0];
-  console.log("Sheet title", sheet.title);
-  console.log("Sheet row count", sheet.rowCount);
-  console.log("sheet update linked..", event);
-  console.log("Data to input", event.time);
+  // console.log("Sheet title", sheet.title);
+  // console.log("Sheet row count", sheet.rowCount);
+  // console.log("sheet update linked..", event);
+  // console.log("Data to input", event.time);
 
   const row = await sheet.addRow({
     investmentAddress: event.investmentAddress,

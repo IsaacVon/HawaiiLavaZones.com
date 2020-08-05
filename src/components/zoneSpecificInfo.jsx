@@ -5,10 +5,11 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
+    width: "100%", // needs to be adjusted
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -20,6 +21,7 @@ export default function SimpleAccordion() {
   const classes = useStyles();
 
   return (
+    <Container maxWidth="sm" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
     <div className={classes.root}>
       <Accordion>
         <AccordionSummary
@@ -178,5 +180,6 @@ export default function SimpleAccordion() {
         </AccordionDetails>
       </Accordion>
     </div>
+    </Container>
   );
 }

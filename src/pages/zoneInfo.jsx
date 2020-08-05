@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import ZoneSpecificInfo from "../components/zoneSpecificInfo"
-import Container from '@material-ui/core/Container';
+import ZoneSpecificInfo from "../components/zoneSpecificInfo";
 
 class ZoneInfo extends Component {
   state = {};
   render() {
     return (
       <>
-        <Container component="main" maxWidth="xs">
         <ZoneSpecificInfo />
-        </Container>
-      
-       
       </>
     );
   }

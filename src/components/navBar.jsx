@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
+import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import { useMediaQuery } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,50 +43,50 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    width: "100vw",
-    backgroundColor: theme.palette.background.paper,
   },
-}));
+});
 
-export default function ScrollableTabsButtonAuto(props) {
+const currentTab = () => {
+  let path = window.location.pathname;
+  if (path === "/Search") return 1;
+  else if (path === "/ZoneInformation") return 2;
+  else if (path === "/Contact") return 3;
+  else if (path === "/Submitted") return 3;
+  else if (path === "/") return 0;
+};
+
+export default function NavBar(props) {
   const classes = useStyles();
 
-  const currentTab = () => {
-    let path = window.location.pathname
-    if (path === "/Search") return 1
-    else if (path === "/ZoneInformation") return 2
-    else if (path === "/Contact") return 3
-    else if (path === "/Submitted") return 3
-  }
- 
   const [value, setValue] = React.useState(currentTab); // This choses which one is highlighted
-
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
+
+  const tabProps = {
+    variant: isSmallScreen ? "scrollable" : "",
+  };
+
+  console.log("tabProps", tabProps);
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
+    <Container maxWidth="lg" style={{ backgroundColor: "green" }}>
+      <Paper className={classes.root}>
         <Tabs
+          {...tabProps}
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
+          centered
         >
-          <Tab 
-            label="Home" 
-            component={Link} 
-            to="/"  
-            {...a11yProps(0)} />
+          <Tab label="Home" component={Link} to="/" {...a11yProps(0)} />
           <Tab
             label="Check Address"
             component={Link}
@@ -104,12 +106,7 @@ export default function ScrollableTabsButtonAuto(props) {
             {...a11yProps(3)}
           />
         </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0} />
-      <TabPanel value={value} index={1} />
-      <TabPanel value={value} index={2} />
-      <TabPanel value={value} index={3} />
-      <TabPanel value={value} index={4} />
-    </div>
+      </Paper>
+    </Container>
   );
 }

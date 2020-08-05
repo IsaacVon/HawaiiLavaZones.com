@@ -55,6 +55,7 @@ export default function PriceSlider(props) {
         max={100}
         name="price"
         onChange={props.handlePriceDrag} 
+        
       />
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import UserInformationForm from "../components/contact/userInformationForm";
 import googleSheet from "../components/contact/googleSheet";
-import InputForm from "../components/contact/index";
+import InputForm from "../components/contact/formValidation";
 import SelectInput from "@material-ui/core/Select/SelectInput";
 import ThankYou from "../components/contact/thankYou";
 
@@ -69,7 +68,6 @@ class Contact extends Component {
   };
 
   handleSubmit = async (data) => {
-    console.log("Submitted");
     this.setState({
       investmentAddress: data.investmentAddress,
       questions: data.questions,
@@ -92,18 +90,7 @@ class Contact extends Component {
             handlePriceDrag={this.handlePriceDrag}
             handleTimeDrag={this.handleTimeDrag}
           />
-          <UserInformationForm
-            step={this.state.step}
-            address={this.state.address}
-            questions={this.state.questions}
-            name={this.state.name}
-            phoneNumber={this.state.phoneNumber}
-            emailAddress={this.state.emailAddress}
-            handlePriceDrag={this.handlePriceDrag}
-            handleTimeDrag={this.handleTimeDrag}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
+
         </>
       );
     }
