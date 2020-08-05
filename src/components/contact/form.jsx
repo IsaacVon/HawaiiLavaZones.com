@@ -30,7 +30,7 @@ export const Form = (props) => {
     setFieldTouched(name, true, false);
   };
   return (
-    <Container maxWidth="sm" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
+    <Container maxWidth="sm" style={{ height: '100vh' }}>
       <form onSubmit={handleSubmit}>
         <TextField
           variant="outlined"

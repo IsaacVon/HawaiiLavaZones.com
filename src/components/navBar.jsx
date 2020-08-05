@@ -9,6 +9,10 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { useMediaQuery } from "@material-ui/core";
+import ImageSearchIcon from '@material-ui/icons/ImageSearch';
+import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
+import LocalLibraryOutlinedIcon from '@material-ui/icons/LocalLibraryOutlined';
+import FilterHdrOutlinedIcon from '@material-ui/icons/FilterHdrOutlined';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,8 +77,6 @@ export default function NavBar(props) {
     variant: isSmallScreen ? "scrollable" : "",
   };
 
-  console.log("tabProps", tabProps);
-
   return (
     <Container maxWidth="lg" style={{ backgroundColor: "green" }}>
       <Paper className={classes.root}>
@@ -86,22 +88,25 @@ export default function NavBar(props) {
           textColor="primary"
           centered
         >
-          <Tab label="Home" component={Link} to="/" {...a11yProps(0)} />
+          <Tab label="Home" component={Link} to="/" icon={<FilterHdrOutlinedIcon />} {...a11yProps(0)} />
           <Tab
             label="Check Address"
             component={Link}
+            icon={<ImageSearchIcon />}
             to="/Search"
             {...a11yProps(1)}
           />
           <Tab
-            component={Link}
-            to="/ZoneInformation"
             label="Zone Info"
+            component={Link}
+            icon={<LocalLibraryOutlinedIcon />}
+            to="/ZoneInformation"
             {...a11yProps(2)}
           />
           <Tab
             label="Contact"
             component={Link}
+            icon={<ContactPhoneOutlinedIcon />}
             to="/Contact"
             {...a11yProps(3)}
           />

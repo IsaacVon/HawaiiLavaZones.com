@@ -40,6 +40,7 @@ class CheckAddress extends Component {
     if (this.state.addressValid && this.state.searchAddress !== "") {
       return (
         <>
+
           <ZoneInformationCard
             searchAddress={this.state.searchAddress}
             lavaZone={this.state.lavaZone}
@@ -73,6 +74,7 @@ class CheckAddress extends Component {
             lng={this.state.lng}
             onPlacesChanged={this.onPlacesChanged}
           />
+       
         </>
       );
     }
