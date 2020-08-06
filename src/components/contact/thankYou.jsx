@@ -6,7 +6,6 @@ import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import logo from './skyWithTree.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {

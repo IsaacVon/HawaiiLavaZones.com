@@ -4,6 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./formLayout";
 import * as Yup from "yup";
 import "yup-phone";
+import { GlobalContextConsumer } from "../../globalContext";
 
 const styles = (theme) => ({
   paper: {
@@ -38,7 +39,6 @@ class InputForm extends Component {
   }
 
   render() {
-    const classes = this.props;
     const values = {
       investmentAddress: "",
       questions: "",
@@ -49,14 +49,16 @@ class InputForm extends Component {
 
     return (
       <React.Fragment>
-        <Formik
-          render={(props) => <Form {...props} />}
-          initialValues={values}
-          validationSchema={validationSchema}
-          onSubmit={this.props.handleSubmit}
-          handlePriceDrag={this.props.handlePriceDrag} // Props arent passing correctly
-          handleTimeDrag={this.props.handleTimeDrag}
-        />
+        <GlobalContextConsumer>
+          {(context) => (
+            <Formik
+              render={(props) => <Form {...props} />}
+              initialValues={values}
+              validationSchema={validationSchema}
+              onSubmit={context.handleSubmit}
+            />
+          )}
+        </GlobalContextConsumer>
       </React.Fragment>
     );
   }

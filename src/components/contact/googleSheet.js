@@ -1,14 +1,10 @@
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 
 const doc = new GoogleSpreadsheet(
-  '1UZ7B_mVH1cN_IZ2ANODh6CHghkSu5m4_Ha3JmtvHwL0'
+  "1UZ7B_mVH1cN_IZ2ANODh6CHghkSu5m4_Ha3JmtvHwL0"
 );
 
-
-
 export default async function googleSheet(event) {
-
-
   await doc.useServiceAccountAuth({
     client_email:
       "lavazone-leads@natural-plasma-281719.iam.gserviceaccount.com",
@@ -25,7 +21,8 @@ export default async function googleSheet(event) {
   // console.log("sheet update linked..", event);
   // console.log("Data to input", event.time);
 
-  const row = await sheet.addRow({
+  // const row = await
+  sheet.addRow({
     investmentAddress: event.investmentAddress,
     email: event.emailAddress,
     name: event.name,
@@ -33,6 +30,6 @@ export default async function googleSheet(event) {
     price: event.price,
     questions: event.questions,
     time: event.time,
-    timeStamp: (new Date()).toLocaleString(),
+    timeStamp: new Date().toLocaleString(),
   });
 }

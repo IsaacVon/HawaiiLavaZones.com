@@ -31,8 +31,6 @@ export const Form = (props) => {
     isValid,
     setFieldTouched,
     handleSubmit,
-    handlePriceDrag, // Having a hard time passing non standard props..
-    handleTimeDrag,
   } = props;
 
   const change = (name, event) => {
@@ -84,11 +82,10 @@ export const Form = (props) => {
 
             <Grid item xs={12}>
               <PriceSlider
-                handlePriceDrag={handlePriceDrag} // Props arent passing correctly
               />
             </Grid>
             <Grid item xs={12}>
-              <TimeSlider handleTimeDrag={handleTimeDrag} />
+              <TimeSlider />
             </Grid>
             <Grid item xs={12}>
               <TextField

@@ -1,10 +1,18 @@
 import React, { Component } from "react";
+import googleSheet from "./components/contact/googleSheet";
 const { Provider, Consumer } = React.createContext();
 
 class GlobalContextProvider extends Component {
   state = {
+    submitted: false,
+    investmentAddress: "",
+    questions: "",
+    name: "",
+    phoneNumber: "",
+    emailAddress: "",
     price: 800000,
     time: 6,
+    timeStamp: "",
   };
 
   handlePriceDrag = (event, price) => {
@@ -55,13 +63,29 @@ class GlobalContextProvider extends Component {
     }
   };
 
+handleSubmit = async (data) => {
+  this.setState({
+    investmentAddress: data.investmentAddress,
+    questions: data.questions,
+    name: data.name,
+    phoneNumber: data.This,
+    emailAddress: data.email,
+    submitted: true,
+  });
+  googleSheet(this.state);
+};
+
   render() {
     return (
       <Provider
         value={{
+          submitted: this.submitted,
           price: this.state.price,
           handlePriceDrag: this.handlePriceDrag,
           handleTimeDrag: this.handleTimeDrag,
+          handleSubmit: this.handleSubmit,
+         
+
         }}
       >
         {this.props.children}
