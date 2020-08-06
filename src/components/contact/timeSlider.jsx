@@ -2,6 +2,8 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Grid from "@material-ui/core/Grid";
+import { GlobalContextConsumer } from "../../globalContext";
+
 
 const marks = [
   {
@@ -28,6 +30,8 @@ const marks = [
 
 export default function TimeSlider(props) {
   return (
+    <GlobalContextConsumer>
+    {context => (
     <Grid container justify="center" spacing={0}>
       <Grid item xs={12}>
         <Typography
@@ -48,9 +52,11 @@ export default function TimeSlider(props) {
           min={20}
           max={100}
           name="time"
-          onChangeCommitted={props.handleTimeDrag}
+          onChangeCommitted={context.handleTimeDrag}
         />
       </Grid>
     </Grid>
-  );
-}
+      )}
+      </GlobalContextConsumer>
+    );
+  }
