@@ -38,7 +38,7 @@ export default function PriceSlider(props) {
           Price Point
         </Typography>
       </Grid>
-      <Grid item xs={11}>
+      <Grid item xs={10} md={11}>
         <Slider
           id="priceSlider"
           defaultValue={60}
@@ -50,7 +50,7 @@ export default function PriceSlider(props) {
           max={100}
           name="price"
           onChange={props.handlePriceDrag}
-          // use onChangeCommitted after
+          // try onChangeCommitted 
         />
       </Grid>
     </Grid>

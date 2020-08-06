@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Form } from "./form";
+import { Form } from "./formLayout";
 import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup";
 import "yup-phone";

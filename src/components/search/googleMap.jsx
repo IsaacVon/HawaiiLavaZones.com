@@ -7,9 +7,9 @@ import {
   StandaloneSearchBox,
 } from "@react-google-maps/api";
 
+
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: "100vw",
   height: "100vh",
 };
 
@@ -42,6 +42,7 @@ export default function App(props) {
         zoom={9.5}
         center={center}
         options={options}
+        
       >
         <KmlLayer
           url="https://nightskybrightness.s3.eu-west- 
@@ -71,8 +72,8 @@ export default function App(props) {
               outline: `none`,
               textOverflow: `ellipses`,
               position: "absolute",
-              top: "60px",
-              left: "10px",
+              top: "20px",
+              left: "20px",
             }}
           />
         </StandaloneSearchBox>

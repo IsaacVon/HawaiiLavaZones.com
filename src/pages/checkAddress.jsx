@@ -3,11 +3,12 @@ import GoogleMap from "../components/search/googleMap";
 import ZoneInformationCard from "../components/search/zoneInformationCard";
 import WrongInputCard from "../components/search/wrongInputCard";
 import { addressToZone } from "../utils/addressToZone";
+import Grid from "@material-ui/core/Grid";
 
 class CheckAddress extends Component {
   state = {
     addressValid: true,
-    searchAddress: "",
+    searchAddress: "FOR TESTINGm",
     lat: 0,
     lng: 0,
     lavaZone: 0,
@@ -40,41 +41,57 @@ class CheckAddress extends Component {
     if (this.state.addressValid && this.state.searchAddress !== "") {
       return (
         <>
-
-          <ZoneInformationCard
-            searchAddress={this.state.searchAddress}
-            lavaZone={this.state.lavaZone}
-          />
-          <GoogleMap
-            searchAddress={this.state.searchAddress}
-            lat={this.state.lat}
-            lng={this.state.lng}
-            onPlacesChanged={this.onPlacesChanged}
-          />
+          <Grid container justify="center" spacing={3}>
+            <Grid item xs={11}>
+              <ZoneInformationCard
+                searchAddress={this.state.searchAddress}
+                lavaZone={this.state.lavaZone}
+              />
+            </Grid>
+          </Grid>
+          <Grid container justify="center" spacing={3}>
+            <Grid item xs={11}>
+              <GoogleMap
+                searchAddress={this.state.searchAddress}
+                lat={this.state.lat}
+                lng={this.state.lng}
+                onPlacesChanged={this.onPlacesChanged}
+              />
+            </Grid>
+          </Grid>
         </>
       );
     } else if (this.state.addressValid) {
       return (
         <>
-          <GoogleMap
-            searchAddress={this.state.searchAddress}
-            lat={this.state.lat}
-            lng={this.state.lng}
-            onPlacesChanged={this.onPlacesChanged}
-          />
+          <Grid container justify="center" spacing={3}>
+            <Grid item xs={11}>
+              <GoogleMap
+                searchAddress={this.state.searchAddress}
+                lat={this.state.lat}
+                lng={this.state.lng}
+                onPlacesChanged={this.onPlacesChanged}
+              />
+            </Grid>
+          </Grid>
         </>
       );
     } else if (!this.state.addressValid) {
       return (
         <>
-          <WrongInputCard searchAddress={this.state.searchAddress} />
-          <GoogleMap
-            searchAddress={this.state.searchAddress}
-            lat={this.state.lat}
-            lng={this.state.lng}
-            onPlacesChanged={this.onPlacesChanged}
-          />
-       
+          <Grid container justify="center" spacing={3}>
+            <Grid item xs={11}>
+              <WrongInputCard searchAddress={this.state.searchAddress} />
+            </Grid>
+            <Grid item xs={11}>
+              <GoogleMap
+                searchAddress={this.state.searchAddress}
+                lat={this.state.lat}
+                lng={this.state.lng}
+                onPlacesChanged={this.onPlacesChanged}
+              />
+            </Grid>
+          </Grid>
         </>
       );
     }

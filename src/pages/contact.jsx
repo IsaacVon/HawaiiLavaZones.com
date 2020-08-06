@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import googleSheet from "../components/contact/googleSheet";
 import InputForm from "../components/contact/formValidation";
-import SelectInput from "@material-ui/core/Select/SelectInput";
 import ThankYou from "../components/contact/thankYou";
 
 class Contact extends Component {
@@ -90,7 +89,6 @@ class Contact extends Component {
             handlePriceDrag={this.handlePriceDrag}
             handleTimeDrag={this.handleTimeDrag}
           />
-
         </>
       );
     }

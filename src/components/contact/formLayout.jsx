@@ -1,13 +1,12 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import PriceSlider from "../contact/priceSlider";
-import TimeSlider from "../contact/timeSlider";
+import PriceSlider from "./priceSlider";
+import TimeSlider from "./timeSlider";
+import ContactText from "./contactText";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,13 +46,8 @@ export const Form = (props) => {
       <div className={classes.root}>
         <Container maxWidth="sm">
           <Grid container justify="center" spacing={3}>
-            <Grid item xs={12} />
             <Grid item xs={12}>
-              <Typography>
-                If you have any questions regarding lava zones or real estate,
-                please leave your questions and contact information, and we will
-                reach out to you as soon as possible.
-              </Typography>
+              <ContactText />
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -135,7 +129,7 @@ export const Form = (props) => {
               />
             </Grid>
             <Grid item xs={12} />
-            <Grid item xs={12}>
+            <Grid item xs={12} md={8}>
               <Button
                 type="submit"
                 variant="contained"

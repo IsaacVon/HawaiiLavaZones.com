@@ -38,7 +38,7 @@ export default function TimeSlider(props) {
           Time Frame
         </Typography>
       </Grid>
-      <Grid item xs={11}>
+      <Grid item xs={10} md={11}>
         <Slider
           defaultValue={60}
           aria-labelledby="discrete-slider-always"

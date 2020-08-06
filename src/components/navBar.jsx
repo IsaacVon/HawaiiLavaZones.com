@@ -7,12 +7,12 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import { useMediaQuery } from "@material-ui/core";
-import ImageSearchIcon from '@material-ui/icons/ImageSearch';
-import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
-import LocalLibraryOutlinedIcon from '@material-ui/icons/LocalLibraryOutlined';
-import FilterHdrOutlinedIcon from '@material-ui/icons/FilterHdrOutlined';
+import ImageSearchIcon from "@material-ui/icons/ImageSearch";
+import ContactPhoneOutlinedIcon from "@material-ui/icons/ContactPhoneOutlined";
+import LocalLibraryOutlinedIcon from "@material-ui/icons/LocalLibraryOutlined";
+import FilterHdrOutlinedIcon from "@material-ui/icons/FilterHdrOutlined";
+import Grid from "@material-ui/core/Grid";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,7 +49,7 @@ function a11yProps(index) {
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
+  
   },
 });
 
@@ -75,44 +75,51 @@ export default function NavBar(props) {
 
   const tabProps = {
     variant: isSmallScreen ? "scrollable" : "standard",
-    centered: isSmallScreen ? false : true
+    centered: isSmallScreen ? false : true,
   };
 
   return (
-    <Container maxWidth="lg" >
-      <Paper className={classes.root} elevation={2} mb={5}>
-        <Tabs
-          {...tabProps}
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-
-        >
-          <Tab label="Home" component={Link} to="/" icon={<FilterHdrOutlinedIcon />} {...a11yProps(0)} />
-          <Tab
-            label="Check Address"
-            component={Link}
-            icon={<ImageSearchIcon />}
-            to="/Search"
-            {...a11yProps(1)}
-          />
-          <Tab
-            label="Zone Info"
-            component={Link}
-            icon={<LocalLibraryOutlinedIcon />}
-            to="/ZoneInformation"
-            {...a11yProps(2)}
-          />
-          <Tab
-            label="Contact"
-            component={Link}
-            icon={<ContactPhoneOutlinedIcon />}
-            to="/Contact"
-            {...a11yProps(3)}
-          />
-        </Tabs>
-      </Paper>
-    </Container>
+    <Grid container justify="center">
+      <Grid item xs={11}>
+        <Paper className={classes.root} elevation={2}>
+          <Tabs
+            {...tabProps}
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+          >
+            <Tab
+              label="Home"
+              component={Link}
+              to="/"
+              icon={<FilterHdrOutlinedIcon />}
+              {...a11yProps(0)}
+            />
+            <Tab
+              label="Check Address"
+              component={Link}
+              icon={<ImageSearchIcon />}
+              to="/Search"
+              {...a11yProps(1)}
+            />
+            <Tab
+              label="Zone Info"
+              component={Link}
+              icon={<LocalLibraryOutlinedIcon />}
+              to="/ZoneInformation"
+              {...a11yProps(2)}
+            />
+            <Tab
+              label="Contact"
+              component={Link}
+              icon={<ContactPhoneOutlinedIcon />}
+              to="/Contact"
+              {...a11yProps(3)}
+            />
+          </Tabs>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 }
