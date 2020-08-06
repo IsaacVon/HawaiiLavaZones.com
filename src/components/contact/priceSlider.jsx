@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Grid from "@material-ui/core/Grid";
+import { GlobalContextConsumer } from "../../globalContext";
 
 const marks = [
   {
@@ -26,8 +27,12 @@ const marks = [
   },
 ];
 
+
 export default function PriceSlider(props) {
   return (
+    <GlobalContextConsumer>
+      {context => (
+        
     <Grid container justify="center" spacing={0}>
       <Grid item xs={12}>
         <Typography
@@ -49,10 +54,11 @@ export default function PriceSlider(props) {
           min={20}
           max={100}
           name="price"
-          onChange={props.handlePriceDrag}
-          // try onChangeCommitted 
+          onChangeCommitted={context.handlePriceDrag}
         />
       </Grid>
     </Grid>
+      )}
+    </GlobalContextConsumer>
   );
 }

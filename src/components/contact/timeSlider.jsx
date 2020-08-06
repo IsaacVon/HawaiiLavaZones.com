@@ -48,7 +48,7 @@ export default function TimeSlider(props) {
           min={20}
           max={100}
           name="time"
-          onChange={props.handleTimeDrag}
+          onChangeCommitted={props.handleTimeDrag}
         />
       </Grid>
     </Grid>
