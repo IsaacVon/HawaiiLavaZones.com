@@ -47,7 +47,6 @@ class InputForm extends Component {
       This: "",
       email: "",
     };
-    console.log("name: ", this.props.name);
     if (this.props.submitted) {
       return <ThankYou name={this.props.name} />;
     } else {

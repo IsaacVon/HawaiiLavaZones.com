@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 class CheckAddress extends Component {
   state = {
     addressValid: true,
-    searchAddress: "FOR TESTINGm",
+    searchAddress: "",
     lat: 0,
     lng: 0,
     lavaZone: 0,
@@ -32,7 +32,7 @@ class CheckAddress extends Component {
         searchAddress: clickedAddress,
         lat: data.geoLocationLat,
         lng: data.geoLocationLng,
-        lavaZone: data.lavaZone,
+        lavaZone: parseInt(data.lavaZone),
       });
     }
   };
