@@ -5,6 +5,7 @@ import { Form } from "./formLayout";
 import * as Yup from "yup";
 import "yup-phone";
 import { GlobalContextConsumer } from "../../globalContext";
+import ThankYou from "../contact/thankYou";
 
 const styles = (theme) => ({
   paper: {
@@ -46,21 +47,25 @@ class InputForm extends Component {
       This: "",
       email: "",
     };
-
-    return (
-      <React.Fragment>
-        <GlobalContextConsumer>
-          {(context) => (
-            <Formik
-              render={(props) => <Form {...props} />}
-              initialValues={values}
-              validationSchema={validationSchema}
-              onSubmit={context.handleSubmit}
-            />
-          )}
-        </GlobalContextConsumer>
-      </React.Fragment>
-    );
+    console.log("name: ", this.props.name);
+    if (this.props.submitted) {
+      return <ThankYou name={this.props.name} />;
+    } else {
+      return (
+        <React.Fragment>
+          <GlobalContextConsumer>
+            {(context) => (
+              <Formik
+                render={(props) => <Form {...props} />}
+                initialValues={values}
+                validationSchema={validationSchema}
+                onSubmit={context.handleSubmit}
+              />
+            )}
+          </GlobalContextConsumer>
+        </React.Fragment>
+      );
+    }
   }
 }
 

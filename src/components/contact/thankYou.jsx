@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     paddingTop: 30,
     flexGrow: 1,
-    
   },
   media: {
     height: 200,
@@ -21,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ThankYou(props) {
-
   const classes = useStyles();
   const name = props.name.split(" ");
   const firstname = name[0];

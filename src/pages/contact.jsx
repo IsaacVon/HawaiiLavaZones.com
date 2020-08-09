@@ -1,25 +1,18 @@
 import React, { Component } from "react";
 import InputForm from "../components/contact/formValidation";
-import ThankYou from "../components/contact/thankYou";
+import { GlobalContextConsumer } from "../globalContext";
 
 class Contact extends Component {
-  state = {
-  };
-
+  state = {};
 
   render() {
-
-    
-    if (this.state.submitted) {
-      return <ThankYou name={this.state.name} />;
-    } else {
-      return (
-        <>
-          <InputForm
-          />
-        </>
-      );
-    }
+    return (
+      <GlobalContextConsumer>
+        {(context) => (
+          <InputForm submitted={context.submitted} name={context.name} />
+        )}
+      </GlobalContextConsumer>
+    );
   }
 }
 

@@ -63,29 +63,28 @@ class GlobalContextProvider extends Component {
     }
   };
 
-handleSubmit = async (data) => {
-  this.setState({
-    investmentAddress: data.investmentAddress,
-    questions: data.questions,
-    name: data.name,
-    phoneNumber: data.This,
-    emailAddress: data.email,
-    submitted: true,
-  });
-  googleSheet(this.state);
-};
+  handleSubmit = async (data) => {
+    this.setState({
+      investmentAddress: data.investmentAddress,
+      questions: data.questions,
+      name: data.name,
+      phoneNumber: data.This,
+      emailAddress: data.email,
+      submitted: true,
+    });
+    googleSheet(this.state);
+  };
 
   render() {
     return (
       <Provider
         value={{
-          submitted: this.submitted,
+          name: this.state.name,
+          submitted: this.state.submitted,
           price: this.state.price,
           handlePriceDrag: this.handlePriceDrag,
           handleTimeDrag: this.handleTimeDrag,
           handleSubmit: this.handleSubmit,
-         
-
         }}
       >
         {this.props.children}
