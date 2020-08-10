@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import GoogleMap from "../components/search/googleMap";
-import WrongInputCard from "../components/search/wrongInputCard";
 import { addressToZone } from "../utils/addressToZone";
 import Grid from "@material-ui/core/Grid";
 
@@ -11,7 +10,7 @@ class CheckAddress extends Component {
     lat: 0,
     lng: 0,
     lavaZone: 0,
-    zoneInfoText: ""  
+    zoneInfoText: "",
     // addressValid: true,
     // searchAddress: "15-1574 31st Avenue, Keaau, HI, USA",
     // lat: 19.5677998,
@@ -24,6 +23,7 @@ class CheckAddress extends Component {
     let clickedAddress = document.getElementById("addressSearch").value;
     const data = await addressToZone(clickedAddress);
 
+    // If API
     if (data === undefined) {
       this.setState({
         addressValid: false,
@@ -31,6 +31,7 @@ class CheckAddress extends Component {
         lat: 0,
         lng: 0,
         lavaZone: 0,
+        zoneInfoText: this.zoneTextGenerator(10),
       });
     } else {
       this.setState({
@@ -39,7 +40,7 @@ class CheckAddress extends Component {
         lat: data.geoLocationLat,
         lng: data.geoLocationLng,
         lavaZone: parseInt(data.lavaZone),
-        zoneInfoText: this.zoneTextGenerator(parseInt(data.lavaZone))
+        zoneInfoText: this.zoneTextGenerator(parseInt(data.lavaZone)),
       });
     }
   };
@@ -84,65 +85,31 @@ class CheckAddress extends Component {
       `Zone 8 is affected by the remaining part of Mauna Kea. Only a few
       percent of this area has been covered by lava in the last 10,000
       years.`,
-      `    Zone 9 is the least likely to be affected by lava. Kohala Volcano,
+      `Zone 9 is the least likely to be affected by lava. Kohala Volcano,
       which last erupted over 60,000 years ago.`,
+      `The address you entered was not valid, please try different address.`,
     ];
-    console.log("zoneTextGenerator: ", arrayOfZoneText[lavaZone]);
     return arrayOfZoneText[lavaZone];
   };
 
   render() {
-    if (this.state.addressValid && this.state.searchAddress !== "") {
-      return (
-        <>
-          <Grid container justify="center" spacing={3}>
-            <Grid item xs={11}>
-              <GoogleMap
-                searchAddress={this.state.searchAddress}
-                lat={this.state.lat}
-                lng={this.state.lng}
-                onPlacesChanged={this.onPlacesChanged}
-                lavaZone={this.state.lavaZone}
-                zoneInfoText={this.state.zoneInfoText}
-              />
-            </Grid>
+    return (
+      <>
+        <Grid container justify="center" spacing={3}>
+          <Grid item xs={11}>
+            <GoogleMap
+              searchAddress={this.state.searchAddress}
+              lat={this.state.lat}
+              lng={this.state.lng}
+              onPlacesChanged={this.onPlacesChanged}
+              lavaZone={this.state.lavaZone}
+              zoneInfoText={this.state.zoneInfoText}
+              addressValid={this.state.addressValid}
+            />
           </Grid>
-        </>
-      );
-    } else if (this.state.addressValid) {
-      return (
-        <>
-          <Grid container justify="center" spacing={3}>
-            <Grid item xs={11}>
-              <GoogleMap
-                searchAddress={this.state.searchAddress}
-                lat={this.state.lat}
-                lng={this.state.lng}
-                onPlacesChanged={this.onPlacesChanged}
-              />
-            </Grid>
-          </Grid>
-        </>
-      );
-    } else if (!this.state.addressValid) {
-      return (
-        <>
-          <Grid container justify="center" spacing={3}>
-            <Grid item xs={11}>
-              <WrongInputCard searchAddress={this.state.searchAddress} />
-            </Grid>
-            <Grid item xs={11}>
-              <GoogleMap
-                searchAddress={this.state.searchAddress}
-                lat={this.state.lat}
-                lng={this.state.lng}
-                onPlacesChanged={this.onPlacesChanged}
-              />
-            </Grid>
-          </Grid>
-        </>
-      );
-    }
+        </Grid>
+      </>
+    );
   }
 }
 

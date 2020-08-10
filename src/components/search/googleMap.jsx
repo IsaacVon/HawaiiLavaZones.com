@@ -11,7 +11,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import { useMediaQuery } from "@material-ui/core";
 
-
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "85vh",
@@ -45,16 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 export default function App(props) {
   const classes = useStyles();
-
 
   // Set Map Zoom dependant on screen size
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
   const mapDefaultZoom = isSmallScreen ? 8.2 : 9;
-  
+
   // Use pin from search for center if it is not null.
   const defaultCenter = { lat: 19.647822, lng: -155.53805 };
   const pinCenter = { lat: props.lat, lng: props.lng };
@@ -69,6 +65,7 @@ export default function App(props) {
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
 
+  // Correct Search
   if (props.lat) {
     return (
       <div>
@@ -123,7 +120,48 @@ export default function App(props) {
         </GoogleMap>
       </div>
     );
-  } else if (!props.lat) {
+  }
+
+  // Invalid address
+  else if (!props.addressValid) {
+    return (
+      <div>
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={mapDefaultZoom}
+          center={defaultCenter}
+          options={options}
+        >
+          <InfoWindow position={defaultCenter}>
+            <>
+              <Typography color="primary" variant="h6">
+                We cant find that address on this island.
+              </Typography>
+              <Typography
+                color="textSecondary"
+                variant="body2"
+                className={classes.pos}
+              >
+                {props.searchAddress}
+              </Typography>
+            </>
+          </InfoWindow>
+          <StandaloneSearchBox onPlacesChanged={props.onPlacesChanged}>
+            <input
+              type="text"
+              id="addressSearch"
+              placeholder="Search Address"
+              name="searchAddress"
+              style={inputFieldStyle}
+            />
+          </StandaloneSearchBox>
+        </GoogleMap>
+      </div>
+    );
+  }
+
+  // Before user searches
+  else if (!props.lat) {
     return (
       <div>
         <GoogleMap
