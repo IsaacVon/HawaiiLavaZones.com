@@ -1,4 +1,4 @@
-import googleGeoAPI from "../apiKeys";
+import apiKeys from "../apiKeys";
 
 async function addressToZone(address) {
   try {
@@ -14,7 +14,7 @@ async function addressToZone(address) {
 
 function buildGeoCoordinatesURL(address) {
   address = encodeURI(address);
-  const apiKey = googleGeoAPI.googleGeoAPI;
+  const apiKey = apiKeys.googleGeoAPI;
   const geoConvertUrl =
     "https://maps.googleapis.com/maps/api/geocode/json?address=" +
     address +

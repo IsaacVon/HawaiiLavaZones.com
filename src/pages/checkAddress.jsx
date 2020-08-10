@@ -23,7 +23,7 @@ class CheckAddress extends Component {
     let clickedAddress = document.getElementById("addressSearch").value;
     const data = await addressToZone(clickedAddress);
 
-    // If API
+ 
     if (data === undefined) {
       this.setState({
         addressValid: false,

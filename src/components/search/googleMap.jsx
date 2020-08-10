@@ -3,6 +3,7 @@ import {
   GoogleMap,
   useLoadScript,
   Marker,
+  KmlLayer,
   StandaloneSearchBox,
   InfoWindow,
 } from "@react-google-maps/api";
@@ -22,11 +23,9 @@ const options = {
   mapTypeControl: false,
 };
 
-
-
 const useStyles = makeStyles((theme) => ({
   pos: {
-    marginBottom: 5,
+    paddingBottom: 0,
   },
 }));
 
@@ -56,13 +55,12 @@ export default function CompleteMap(props) {
     boxShadow: `0 1px 3px rgba(0, 0, 0, 0.2)`,
     fontSize: `18px`,
     outline: `none`,
-    position: 'absolute',
+    position: "absolute",
     textOverflow: `ellipses`,
     top: "20px",
     left: inputLeft,
     right: "0px",
     margin: inputMargin,
-    
   };
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCGJr4hqm5LtdMCGQo7mCZvO-HEvKV54DM",
@@ -82,6 +80,9 @@ export default function CompleteMap(props) {
           center={searchViewOffsetCenter}
           options={options}
         >
+          <KmlLayer
+            url="http://clivemogusu.tk/media/to-amsterdam-and-beyond.kml"
+          />
           <Marker
             position={{
               lat: props.lat,

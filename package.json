@@ -1,6 +1,9 @@
 {
   "name": "lavazone",
   "version": "0.1.0",
+  "engines": {
+    "node": "v12.16.3"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",

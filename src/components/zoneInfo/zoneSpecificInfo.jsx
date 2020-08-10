@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%", // needs to be adjusted
     flexWrap: "wrap",
     paddingTop: 35,
+    paddingBottom: 60,
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
