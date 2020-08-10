@@ -13,9 +13,6 @@ import Link from "@material-ui/core/Link";
 import { useMediaQuery } from "@material-ui/core";
 
 const libraries = ["places"];
-const mapContainerStyle = {
-  height: "85vh",
-};
 
 const options = {
   disableDefaultUI: true,
@@ -38,6 +35,10 @@ export default function CompleteMap(props) {
 
   const inputMargin = isSmallScreen ? "auto" : "";
   const inputLeft = isSmallScreen ? 0 : 20;
+
+  const mapContainerStyle = {
+    height: isSmallScreen ? "75vh" : "85vh",
+  };
 
   // Use pin from search for center if it is not null.
   const defaultCenter = { lat: 19.647822, lng: -155.53805 };
@@ -80,9 +81,7 @@ export default function CompleteMap(props) {
           center={searchViewOffsetCenter}
           options={options}
         >
-          <KmlLayer
-            url="http://clivemogusu.tk/media/to-amsterdam-and-beyond.kml"
-          />
+          <KmlLayer url="http://clivemogusu.tk/media/to-amsterdam-and-beyond.kml" />
           <Marker
             position={{
               lat: props.lat,
