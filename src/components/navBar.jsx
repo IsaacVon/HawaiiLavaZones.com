@@ -102,7 +102,7 @@ export default function NavBar(props) {
               {...a11yProps(1)}
             />
             <Tab
-              label="Zone Info"
+              label="Information"
               component={Link}
               icon={<LocalLibraryOutlinedIcon />}
               to="/ZoneInformation"

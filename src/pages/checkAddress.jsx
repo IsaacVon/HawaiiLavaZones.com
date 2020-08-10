@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GoogleMap from "../components/search/googleMap";
+import CompleteMap from "../components/search/googleMap";
 import { addressToZone } from "../utils/addressToZone";
 import Grid from "@material-ui/core/Grid";
 
@@ -97,7 +97,7 @@ class CheckAddress extends Component {
       <>
         <Grid container justify="center" spacing={3}>
           <Grid item xs={11}>
-            <GoogleMap
+            <CompleteMap
               searchAddress={this.state.searchAddress}
               lat={this.state.lat}
               lng={this.state.lng}

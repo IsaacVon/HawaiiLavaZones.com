@@ -22,21 +22,7 @@ const options = {
   mapTypeControl: false,
 };
 
-const inputFieldStyle = {
-  boxSizing: `border-box`,
-  border: `1px solid transparent`,
-  width: `240px`,
-  height: `40px`,
-  padding: `0 12px`,
-  borderRadius: `5px`,
-  boxShadow: `0 1px 3px rgba(0, 0, 0, 0.2)`,
-  fontSize: `18px`,
-  outline: `none`,
-  textOverflow: `ellipses`,
-  position: "absolute",
-  top: "20px",
-  left: "20px",
-};
+
 
 const useStyles = makeStyles((theme) => ({
   pos: {
@@ -44,12 +30,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function App(props) {
+export default function CompleteMap(props) {
   const classes = useStyles();
 
   // Set Map Zoom dependant on screen size
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
   const mapDefaultZoom = isSmallScreen ? 8.2 : 9;
+
+  const inputMargin = isSmallScreen ? "auto" : "";
+  const inputLeft = isSmallScreen ? 0 : 20;
 
   // Use pin from search for center if it is not null.
   const defaultCenter = { lat: 19.647822, lng: -155.53805 };
@@ -57,6 +46,24 @@ export default function App(props) {
   const searchViewOffsetCenter = { lat: props.lat + 0.0, lng: props.lng };
   let center = props.lat ? pinCenter : defaultCenter;
 
+  const inputFieldStyle = {
+    boxSizing: `border-box`,
+    border: `1px solid transparent`,
+    width: `240px`,
+    height: `40px`,
+    padding: `0 12px`,
+    borderRadius: `5px`,
+    boxShadow: `0 1px 3px rgba(0, 0, 0, 0.2)`,
+    fontSize: `18px`,
+    outline: `none`,
+    position: 'absolute',
+    textOverflow: `ellipses`,
+    top: "20px",
+    left: inputLeft,
+    right: "0px",
+    margin: inputMargin,
+    
+  };
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCGJr4hqm5LtdMCGQo7mCZvO-HEvKV54DM",
     libraries,
