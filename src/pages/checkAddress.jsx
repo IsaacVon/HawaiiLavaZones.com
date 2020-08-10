@@ -11,7 +11,13 @@ class CheckAddress extends Component {
     lat: 0,
     lng: 0,
     lavaZone: 0,
-    zoneInfoText: ""
+    zoneInfoText: ""  
+    // addressValid: true,
+    // searchAddress: "15-1574 31st Avenue, Keaau, HI, USA",
+    // lat: 19.5677998,
+    // lng: -154.9972886,
+    // lavaZone: 3,
+    // zoneInfoText: ""
   };
 
   onPlacesChanged = async () => {

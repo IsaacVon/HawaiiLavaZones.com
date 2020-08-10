@@ -8,14 +8,13 @@ import {
 } from "@react-google-maps/api";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
+import { useMediaQuery } from "@material-ui/core";
+
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  height: "100vh",
+  height: "85vh",
 };
 
 const options = {
@@ -41,33 +40,31 @@ const inputFieldStyle = {
 };
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    minWidth: 300,
-    maxHeight: 300,
-  },
-
-  title: {
-    fontSize: 14,
-  },
   pos: {
-    marginBottom: 12,
+    marginBottom: 5,
   },
 }));
 
+
+
 export default function App(props) {
   const classes = useStyles();
+
+
+  // Set Map Zoom dependant on screen size
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
+  const mapDefaultZoom = isSmallScreen ? 8.2 : 9;
+  
   // Use pin from search for center if it is not null.
   const defaultCenter = { lat: 19.647822, lng: -155.53805 };
   const pinCenter = { lat: props.lat, lng: props.lng };
+  const searchViewOffsetCenter = { lat: props.lat + 0.0, lng: props.lng };
   let center = props.lat ? pinCenter : defaultCenter;
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCGJr4hqm5LtdMCGQo7mCZvO-HEvKV54DM",
     libraries,
-    // ID IS NOT WORKING
-    googleMapsClientId: "b22671634953788f",
   });
-
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
@@ -78,10 +75,9 @@ export default function App(props) {
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={9.5}
-          center={center}
+          center={searchViewOffsetCenter}
           options={options}
         >
-
           <Marker
             position={{
               lat: props.lat,
@@ -95,22 +91,24 @@ export default function App(props) {
             }}
           >
             <>
-              <Card className={classes.root}>
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    Lava Zone {props.lavaZone}
-                  </Typography>
-                  <Typography className={classes.pos} color="textSecondary">
-                    {props.searchAddress}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {props.zoneInfoText}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
-              </Card>
+              <Typography color="primary" variant="h6">
+                Lava Zone {props.lavaZone}
+              </Typography>
+              <Typography
+                color="textSecondary"
+                variant="body2"
+                className={classes.pos}
+              >
+                {props.searchAddress}
+              </Typography>
+              <Typography
+                color="textSecondary"
+                variant="body2"
+                className={classes.pos}
+              ></Typography>
+              <Link href="/ZoneInformation" variant="body2" color="primary">
+                Learn More
+              </Link>
             </>
           </InfoWindow>
           <StandaloneSearchBox onPlacesChanged={props.onPlacesChanged}>
@@ -130,7 +128,7 @@ export default function App(props) {
       <div>
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
-          zoom={9.5}
+          zoom={mapDefaultZoom}
           center={center}
           options={options}
         >
