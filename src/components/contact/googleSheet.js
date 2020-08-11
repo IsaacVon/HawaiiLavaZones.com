@@ -4,8 +4,6 @@ const doc = new GoogleSpreadsheet(
   "1UZ7B_mVH1cN_IZ2ANODh6CHghkSu5m4_Ha3JmtvHwL0"
 );
 
-console.log("Client Email: ", apiKeys.clientEmail)
-
 export default async function googleSheet(event) {
   await doc.useServiceAccountAuth({
     client_email: apiKeys.clientEmail,
