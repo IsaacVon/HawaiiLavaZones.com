@@ -9,12 +9,12 @@ import ThankYou from "../contact/thankYou";
 
 const styles = (theme) => ({
   paper: {
-    marginTop: theme.spacing.unit * 8,
+    marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: `${theme.spacing.unit * 5}px ${theme.spacing.unit * 5}px ${
-      theme.spacing.unit * 5
+    padding: `${theme.spacing(5)}px ${theme.spacing(5)}px ${
+      theme.spacing(5)
     }px`,
   },
   container: {
