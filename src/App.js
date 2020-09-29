@@ -42,7 +42,7 @@ function App() {
   if (!mobile) {
     return (
       <Router>
-        <div className="App">
+        <div className="desktopApp">
           <NavBarDesktop />
           <Switch>
             <Route path="/" exact component={HomeDesktop} />
@@ -58,8 +58,7 @@ function App() {
   if (mobile) {
     return (
       <Router>
-        <div className="App">
-          <NavBarMobile />
+        <div className="mobileApp">
           <Switch>
             <Route path="/" exact component={HomeMobile} />
             <Route path="/Search" component={CheckAddressMobile} />
@@ -67,6 +66,7 @@ function App() {
             <Route path="/Contact" component={ContactMobile} />
             <Route path="/*" component={NotFoundMobile} />
           </Switch>
+          <NavBarMobile />
         </div>
       </Router>
     );

@@ -1,7 +1,7 @@
+import { ClassRounded } from "@material-ui/icons";
 import React, { Component } from "react";
 import CompleteMap from "../../components/search/googleMap";
 import { addressToZone } from "../../utils/addressToZone";
-import Grid from "@material-ui/core/Grid";
 
 class CheckAddress extends Component {
   state = {
@@ -23,7 +23,6 @@ class CheckAddress extends Component {
     let clickedAddress = document.getElementById("addressSearch").value;
     const data = await addressToZone(clickedAddress);
 
- 
     if (data === undefined) {
       this.setState({
         addressValid: false,
@@ -94,21 +93,17 @@ class CheckAddress extends Component {
 
   render() {
     return (
-      <>
-        <Grid container justify="center" spacing={3}>
-          <Grid item xs={11}>
-            <CompleteMap
-              searchAddress={this.state.searchAddress}
-              lat={this.state.lat}
-              lng={this.state.lng}
-              onPlacesChanged={this.onPlacesChanged}
-              lavaZone={this.state.lavaZone}
-              zoneInfoText={this.state.zoneInfoText}
-              addressValid={this.state.addressValid}
-            />
-          </Grid>
-        </Grid>
-      </>
+      <div className="mapContainer">
+        <CompleteMap
+          searchAddress={this.state.searchAddress}
+          lat={this.state.lat}
+          lng={this.state.lng}
+          onPlacesChanged={this.onPlacesChanged}
+          lavaZone={this.state.lavaZone}
+          zoneInfoText={this.state.zoneInfoText}
+          addressValid={this.state.addressValid}
+        />
+      </div>
     );
   }
 }

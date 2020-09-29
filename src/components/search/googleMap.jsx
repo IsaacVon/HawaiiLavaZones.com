@@ -31,13 +31,16 @@ export default function CompleteMap(props) {
 
   // Set Map Zoom dependant on screen size
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
-  const mapDefaultZoom = isSmallScreen ? 8.2 : 9;
+  const mapDefaultZoom = 8.2;
 
-  const inputMargin = isSmallScreen ? "auto" : "";
-  const inputLeft = isSmallScreen ? 0 : 20;
+  const inputMargin = "auto";
+  const inputLeft = 0;
 
   const mapContainerStyle = {
-    height: isSmallScreen ? "75vh" : "85vh",
+    paddingTop: "10px",
+    paddingBottom: "10px",
+    height: "90vh",
+    borderRadius: "25px"
   };
 
   // Use pin from search for center if it is not null.
@@ -81,7 +84,6 @@ export default function CompleteMap(props) {
           center={searchViewOffsetCenter}
           options={options}
         >
-          <KmlLayer url="http://clivemogusu.tk/media/to-amsterdam-and-beyond.kml" />
           <Marker
             position={{
               lat: props.lat,

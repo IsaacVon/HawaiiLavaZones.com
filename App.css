@@ -1,0 +1,76 @@
+
+/* Mobile */
+.mapContainer {
+  background-color:blue;
+
+}
+
+.mobileApp {
+  background-color:blue;
+  margin: 0px
+}
+
+.inputFieldStyle {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  width: 240px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  outline: none;
+  position: absolute;
+  text-overflow: ellipses;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+  margin: inputMargin;
+}
+
+
+.mapContainerStyle {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 90vh;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}   
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 894px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1070px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1170px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1700px) {
+}
