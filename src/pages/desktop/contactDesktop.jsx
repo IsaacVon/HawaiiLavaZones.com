@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import InputForm from "../components/contact/formValidation";
-import { GlobalContextConsumer } from "../globalContext";
+import InputForm from "../../components/contact/formValidation";
+import { GlobalContextConsumer } from "../../globalContext";
 
 class Contact extends Component {
   state = {};
