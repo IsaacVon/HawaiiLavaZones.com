@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 #api key
-apiKeys.js
-natural-plasma-281719-6f6a98e3ec94.json
+# apiKeys.js
+# natural-plasma-281719-6f6a98e3ec94.json
 
 # dependencies
 /node_modules
