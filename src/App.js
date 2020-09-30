@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
 // Desktop
 import NavBarDesktop from "./components/desktop/navBarDesktop";
 import HomeDesktop from "./pages/desktop/homeDesktop";
@@ -18,8 +17,7 @@ import ZoneInfoMobile from "./pages/mobile/zoneInfoMobile";
 import ContactMobile from "./pages/mobile/contactMobile";
 import NotFoundMobile from "./pages/mobile/notFoundMobile";
 
-
-
+import "./App.css";
 
 const isMobile = (window.mobileCheck = function () {
   let check = false;
@@ -58,16 +56,14 @@ function App() {
   if (mobile) {
     return (
       <Router>
-        <div className="mobileApp">
-          <Switch>
-            <Route path="/" exact component={HomeMobile} />
-            <Route path="/Search" component={CheckAddressMobile} />
-            <Route path="/ZoneInformation" component={ZoneInfoMobile} />
-            <Route path="/Contact" component={ContactMobile} />
-            <Route path="/*" component={NotFoundMobile} />
-          </Switch>
-          <NavBarMobile />
-        </div>
+        <Switch>
+          <Route path="/" exact component={HomeMobile} />
+          <Route path="/Search" component={CheckAddressMobile} />
+          <Route path="/ZoneInformation" component={ZoneInfoMobile} />
+          <Route path="/Contact" component={ContactMobile} />
+          <Route path="/*" component={NotFoundMobile} />
+        </Switch>
+        {/* <NavBarMobile /> */}
       </Router>
     );
   }

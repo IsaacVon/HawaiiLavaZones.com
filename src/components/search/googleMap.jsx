@@ -3,7 +3,6 @@ import {
   GoogleMap,
   useLoadScript,
   Marker,
-  KmlLayer,
   StandaloneSearchBox,
   InfoWindow,
 } from "@react-google-maps/api";
@@ -30,17 +29,12 @@ export default function CompleteMap(props) {
   const classes = useStyles();
 
   // Set Map Zoom dependant on screen size
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
   const mapDefaultZoom = 8.2;
-
   const inputMargin = "auto";
   const inputLeft = 0;
 
   const mapContainerStyle = {
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    height: "90vh",
-    borderRadius: "25px"
+    height: "120%",
   };
 
   // Use pin from search for center if it is not null.
@@ -55,7 +49,7 @@ export default function CompleteMap(props) {
     width: `240px`,
     height: `40px`,
     padding: `0 12px`,
-    borderRadius: `5px`,
+    borderRadius: `20px`,
     boxShadow: `0 1px 3px rgba(0, 0, 0, 0.2)`,
     fontSize: `18px`,
     outline: `none`,
@@ -77,7 +71,7 @@ export default function CompleteMap(props) {
   // Correct Search
   if (props.lat) {
     return (
-      <div>
+      <>
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={9.5}
@@ -127,14 +121,14 @@ export default function CompleteMap(props) {
             />
           </StandaloneSearchBox>
         </GoogleMap>
-      </div>
+      </>
     );
   }
 
   // Invalid address
   else if (!props.addressValid) {
     return (
-      <div>
+      <>
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={mapDefaultZoom}
@@ -165,14 +159,14 @@ export default function CompleteMap(props) {
             />
           </StandaloneSearchBox>
         </GoogleMap>
-      </div>
+      </>
     );
   }
 
   // Before user searches
   else if (!props.lat) {
     return (
-      <div>
+      <>
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={mapDefaultZoom}
@@ -189,7 +183,7 @@ export default function CompleteMap(props) {
             />
           </StandaloneSearchBox>
         </GoogleMap>
-      </div>
+      </>
     );
   }
 }

@@ -13,15 +13,18 @@ import "../../App.css";
 
 const useStyles = makeStyles({
   root: {
-    width: "96%",
-    marginLeft: "0px",
-    marginRight: "0px",
-    position: "fixed",
-    bottom: 10,
-    backgroundColor: "lightGray",
+    width: "100%",
+    // position: "fixed",
+    // bottom: 10,
+    backgroundColor: "white",
     borderRadius: "18px",
-    height: "80px"
+    height: "80px",
+    zIndex: "100000"
   },
+  button: {
+    padding: "0px"
+    
+  }
 });
 
 export default function SimpleBottomNavigation() {
@@ -42,18 +45,22 @@ export default function SimpleBottomNavigation() {
         to="/"
         label="Home"
         icon={<RestoreIcon />}
+        className={classes.button}
+
       />
       <BottomNavigationAction
         component={Link}
         to="/Search"
         label="Search"
         icon={<FavoriteIcon />}
+        className={classes.button}
       />
       <BottomNavigationAction
         component={Link}
         to="/ZoneInformation"
         label="Information"
         icon={<LocationOnIcon />}
+        className={classes.button}
       />   
       
       <BottomNavigationAction
@@ -61,6 +68,7 @@ export default function SimpleBottomNavigation() {
         to="/Contact"
         label="Contact"
         icon={<LocationOnIcon />}
+        className={classes.button}
       />
     </BottomNavigation>
   );
