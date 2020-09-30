@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "lavazone",
   "version": "0.1.0",
   "engines": {

@@ -4,7 +4,6 @@ import { GlobalContextConsumer } from "../../globalContext";
 import NavBarMobile from "../../components/mobile/navBarMobile";
 
 class Contact extends Component {
-  state = {};
 
   render() {
     return (
