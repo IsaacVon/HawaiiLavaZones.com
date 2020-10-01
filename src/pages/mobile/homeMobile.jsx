@@ -6,9 +6,7 @@ function Home() {
     <>
       <h1>Mobile Home</h1>
       <p>dsfad</p>
-      <div className="mobileNavStickyHome">
-        <NavBarMobile />
-      </div>
+
     </>
   );
 }

@@ -5,17 +5,11 @@ import Container from "@material-ui/core/Container";
 import NavBarMobile from "../../components/mobile/navBarMobile";
 
 class ZoneInfo extends Component {
-  state = {};
   render() {
     return (
       <>
-        <Container maxWidth="sm" style={{ height: "85vh" }}>
-          <GeneralZoneInfo />
-          <ZoneSpecificInfo />
-        </Container>
-        <div className="mobileNavStickyHome">
-          <NavBarMobile />
-        </div>
+        <GeneralZoneInfo />
+        <ZoneSpecificInfo />
       </>
     );
   }

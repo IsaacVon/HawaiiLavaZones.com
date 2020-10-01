@@ -35,8 +35,19 @@ const isMobile = (window.mobileCheck = function () {
   return check;
 });
 
+
+// const renderMobileNav = () => {
+//   if (window.location.pathname === "/Search") return "mobileNavSearch";
+//   else return "mobileNav";
+// };
+
+
+
 function App() {
   const mobile = isMobile();
+
+  
+
   if (!mobile) {
     return (
       <Router>
@@ -56,14 +67,16 @@ function App() {
   if (mobile) {
     return (
       <Router>
-        <Switch>
-          <Route path="/" exact component={HomeMobile} />
-          <Route path="/Search" component={CheckAddressMobile} />
-          <Route path="/ZoneInformation" component={ZoneInfoMobile} />
-          <Route path="/Contact" component={ContactMobile} />
-          <Route path="/*" component={NotFoundMobile} />
-        </Switch>
-        {/* <NavBarMobile /> */}
+        <div className="searchWrapperMobile">
+          <Switch>
+            <Route path="/" exact component={HomeMobile} />
+            <Route path="/Search" component={CheckAddressMobile} />
+            <Route path="/ZoneInformation" component={ZoneInfoMobile} />
+            <Route path="/Contact" component={ContactMobile} />
+            <Route path="/*" component={NotFoundMobile} />
+          </Switch>
+            <NavBarMobile />
+        </div>
       </Router>
     );
   }

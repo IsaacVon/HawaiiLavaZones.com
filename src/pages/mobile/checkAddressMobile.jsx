@@ -1,10 +1,10 @@
-import { ClassRounded } from "@material-ui/icons";
 import React, { Component } from "react";
 import CompleteMap from "../../components/search/googleMap";
 import { addressToZone } from "../../utils/addressToZone";
 import NavBarMobile from "../../components/mobile/navBarMobile";
 
 import "../../App.css";
+
 
 class CheckAddress extends Component {
   state = {
@@ -21,6 +21,9 @@ class CheckAddress extends Component {
     // lavaZone: 3,
     // zoneInfoText: ""
   };
+
+  targetRef = React.createRef();
+  targetElement = null;
 
   onPlacesChanged = async () => {
     let clickedAddress = document.getElementById("addressSearch").value;
@@ -95,9 +98,10 @@ class CheckAddress extends Component {
   };
 
   render() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
     return (
       <>
-        <div className="searchWrapperMobile">
           <div className="mapContainer">
             <CompleteMap
               searchAddress={this.state.searchAddress}
@@ -109,8 +113,6 @@ class CheckAddress extends Component {
               addressValid={this.state.addressValid}
             />
           </div>
-          <NavBarMobile />
-        </div>
       </>
     );
   }

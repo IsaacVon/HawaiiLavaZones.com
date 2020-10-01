@@ -1,24 +1,23 @@
 /* html,body{margin:0;padding:0} */
 
 /* Mobile */
+
 .mapContainer {
- /*background-color: blue;
- */
- height: 100%;
- width: 100%;
- overflow: hidden;
- border-radius: 20px;
- -webkit-border-radius: 20px;
- -moz-border-radius: 20px;
- -ms-border-radius: 20px;
- -o-border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .searchWrapperMobile {
   display: grid;
   grid-template-rows: 1fr auto;
-  /* place-items: center; */
-  height: 97vh
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 98);
 }
 
 .inputFieldStyle {
@@ -50,41 +49,32 @@
   -o-border-radius: 25px;
 }
 
-.mobileNavSticky {
+.mobileNav {
   position: sticky;
-  bottom: 16px;
+  margin-top: 10px;
+  bottom: 0px;
   display: grid;
   place-items: center;
 }
 
-.mobileNavStickyHome {
-  position: fixed;
-  bottom: 16px;
+.mobileNavSearch {
+  position: sticky;
+  margin-top: 10px;
+  bottom: 0px;
   display: grid;
   place-items: center;
 }
 
-
-.mobileNavStickyHome div {
-  background-color: rgb(217, 255, 228);
-
-}
-.mobileNavSticky div {
-  background-color: rgb(217, 255, 228);
+.mobileNav div {
+  /* background-color: #48f523; */
+  padding-bottom: 8px;
+  /* background-color: white; */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.mobileNavSearch div {
+  /* background-color: blue; */
+  background-color: white;
+}
 
 @media only screen and (max-width: 600px) {
 }

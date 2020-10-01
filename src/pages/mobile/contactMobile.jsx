@@ -4,7 +4,6 @@ import { GlobalContextConsumer } from "../../globalContext";
 import NavBarMobile from "../../components/mobile/navBarMobile";
 
 class Contact extends Component {
-
   render() {
     return (
       <>
@@ -13,9 +12,6 @@ class Contact extends Component {
             <InputForm submitted={context.submitted} name={context.name} />
           )}
         </GlobalContextConsumer>
-        <div className="mobileNavSticky">
-          <NavBarMobile />
-        </div>
       </>
     );
   }
