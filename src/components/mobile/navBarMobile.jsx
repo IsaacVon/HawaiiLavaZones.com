@@ -1,12 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
+
+// icons
+import FilterHdrRoundedIcon from "@material-ui/icons/FilterHdrRounded";
+import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
+import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
+import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded";
+
 import "../../App.css";
 
 const useStyles = makeStyles({
@@ -28,12 +31,14 @@ export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
+  const navClassName = () => {
+    if (window.location.pathname === "/Search") return "mobileNavSearch";
+    if (window.location.pathname === "/") return "mobileNavSearch";
+    else return "mobileNav";
+  };
+
   return (
-    <div
-      className={
-        window.location.pathname === "/Search" ? "mobileNavSearch" : "mobileNav"
-      }
-    >
+    <div className={navClassName()}>
       <BottomNavigation
         value={value}
         onChange={(event, newValue) => {
@@ -46,21 +51,21 @@ export default function SimpleBottomNavigation() {
           component={Link}
           to="/"
           label="Home"
-          icon={<RestoreIcon />}
+          icon={<FilterHdrRoundedIcon />}
           className={classes.button}
         />
         <BottomNavigationAction
           component={Link}
           to="/Search"
           label="Search"
-          icon={<FavoriteIcon />}
+          icon={<SearchRoundedIcon />}
           className={classes.button}
         />
         <BottomNavigationAction
           component={Link}
           to="/ZoneInformation"
-          label="Information"
-          icon={<LocationOnIcon />}
+          label="Learn"
+          icon={<LibraryBooksRoundedIcon />}
           className={classes.button}
         />
 
@@ -68,7 +73,7 @@ export default function SimpleBottomNavigation() {
           component={Link}
           to="/Contact"
           label="Contact"
-          icon={<LocationOnIcon />}
+          icon={<PersonRoundedIcon />}
           className={classes.button}
         />
       </BottomNavigation>

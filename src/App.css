@@ -55,6 +55,7 @@
   bottom: 0px;
   display: grid;
   place-items: center;
+  border-color: green;
 }
 
 .mobileNavSearch {
@@ -68,12 +69,13 @@
 .mobileNav div {
   /* background-color: #48f523; */
   padding-bottom: 8px;
-  /* background-color: white; */
+ 
 }
 
 .mobileNavSearch div {
   /* background-color: blue; */
   background-color: white;
+
 }
 
 @media only screen and (max-width: 600px) {

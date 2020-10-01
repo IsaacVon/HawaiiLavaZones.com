@@ -5,8 +5,6 @@ function Home() {
   return (
     <>
       <h1>Mobile Home</h1>
-      <p>dsfad</p>
-
     </>
   );
 }
