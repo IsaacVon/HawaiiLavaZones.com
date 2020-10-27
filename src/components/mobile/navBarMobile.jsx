@@ -5,6 +5,9 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 
 // icons
+import logo from "../../assets/home2.svg"
+import Icon from "@material-ui/core/Icon";
+
 import FilterHdrRoundedIcon from "@material-ui/icons/FilterHdrRounded";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
@@ -37,6 +40,13 @@ export default function SimpleBottomNavigation() {
     else return "mobileNav";
   };
 
+  const homeIcon = (
+    <Icon>
+      <img src="../../assets/home2.svg" />
+    </Icon>
+  );
+
+
   return (
     <div className={navClassName()}>
       <BottomNavigation
@@ -51,7 +61,7 @@ export default function SimpleBottomNavigation() {
           component={Link}
           to="/"
           label="Home"
-          icon={<FilterHdrRoundedIcon />}
+          icon={homeIcon}
           className={classes.button}
         />
         <BottomNavigationAction

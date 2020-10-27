@@ -3,7 +3,7 @@ import CompleteMap from "../../components/search/googleMap";
 import { addressToZone } from "../../utils/addressToZone";
 import Grid from "@material-ui/core/Grid";
 
-class CheckAddress extends Component {
+class CheckAddressDesktop extends Component {
   state = {
     addressValid: true,
     searchAddress: "",
@@ -95,6 +95,8 @@ class CheckAddress extends Component {
   render() {
     return (
       <>
+      <p>Check Address Desktop - Rendered</p>
+
         <Grid container justify="center" spacing={3}>
           <Grid item xs={11}>
             <CompleteMap
@@ -113,4 +115,4 @@ class CheckAddress extends Component {
   }
 }
 
-export default CheckAddress;
+export default CheckAddressDesktop;

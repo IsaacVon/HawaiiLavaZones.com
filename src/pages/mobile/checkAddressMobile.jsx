@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CompleteMap from "../../components/search/googleMap";
 import { addressToZone } from "../../utils/addressToZone";
-import NavBarMobile from "../../components/mobile/navBarMobile";
 
 import "../../App.css";
 

@@ -1,5 +1,4 @@
 import React from "react";
-import NavBarMobile from "../../components/mobile/navBarMobile";
 
 function Home() {
   return (

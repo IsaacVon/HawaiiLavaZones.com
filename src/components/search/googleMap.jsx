@@ -9,7 +9,6 @@ import {
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
-import { useMediaQuery } from "@material-ui/core";
 
 const libraries = ["places"];
 
