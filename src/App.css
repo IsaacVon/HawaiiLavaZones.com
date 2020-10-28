@@ -1,5 +1,21 @@
 /* html,body{margin:0;padding:0} */
 
+
+/* Desktop */
+.mapContainerDesktop {
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+
+
+
 /* Mobile */
 
 .mapContainer {

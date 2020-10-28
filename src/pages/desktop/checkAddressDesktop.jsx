@@ -95,10 +95,11 @@ class CheckAddressDesktop extends Component {
   render() {
     return (
       <>
-      <p>Check Address Desktop - Rendered</p>
 
         <Grid container justify="center" spacing={3}>
           <Grid item xs={11}>
+          <div className="mapContainerDesktop">
+
             <CompleteMap
               searchAddress={this.state.searchAddress}
               lat={this.state.lat}
@@ -108,6 +109,7 @@ class CheckAddressDesktop extends Component {
               zoneInfoText={this.state.zoneInfoText}
               addressValid={this.state.addressValid}
             />
+            </div>
           </Grid>
         </Grid>
       </>
