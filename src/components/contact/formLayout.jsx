@@ -128,13 +128,14 @@ export const Form = (props) => {
               />
             </Grid>
             <Grid item xs={12} />
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={8} >
               <Button
                 type="submit"
                 variant="contained"
                 color="primary"
                 disabled={!isValid}
                 fullWidth
+                textPrimary="white"
               >
                 Talk to An Expert
               </Button>

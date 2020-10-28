@@ -90,24 +90,26 @@ export default function CompleteMap(props) {
             }}
           >
             <>
-              <Typography color="primary" variant="h6">
-                Lava Zone {props.lavaZone}
-              </Typography>
-              <Typography
-                color="textSecondary"
-                variant="body2"
-                className={classes.pos}
-              >
-                {props.searchAddress}
-              </Typography>
-              <Typography
-                color="textSecondary"
-                variant="body2"
-                className={classes.pos}
-              ></Typography>
-              <Link href="/ZoneInformation" variant="body2" color="primary">
-                Learn More
-              </Link>
+              <div className="infoWindow">
+                <Typography color="primary" variant="h6">
+                  Lava Zone {props.lavaZone}
+                </Typography>
+                <Typography
+                  color="textSecondary"
+                  variant="body2"
+                  className={classes.pos}
+                >
+                  {props.searchAddress}
+                </Typography>
+                <Typography
+                  color="textSecondary"
+                  variant="body2"
+                  className={classes.pos}
+                ></Typography>
+                <Link href="/ZoneInformation" variant="body2" color="primary">
+                  Learn More
+                </Link>
+              </div>
             </>
           </InfoWindow>
           <StandaloneSearchBox onPlacesChanged={props.onPlacesChanged}>

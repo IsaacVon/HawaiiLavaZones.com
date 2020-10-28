@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
@@ -79,7 +78,6 @@ export default function NavBar(props) {
   return (
     <Grid container justify="center">
       <Grid item xs={11}>
-        <Paper className={classes.root} elevation={2}>
           <Tabs
             {...tabProps}
             value={value}
@@ -116,7 +114,6 @@ export default function NavBar(props) {
               {...a11yProps(3)}
             />
           </Tabs>
-        </Paper>
       </Grid>
     </Grid>
   );

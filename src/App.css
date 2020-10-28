@@ -1,9 +1,21 @@
 /* html,body{margin:0;padding:0} */
 
 
+
+
+/* Commmon */
+
+
+
+.infoWindow {
+  padding: 20px;
+}
+
+
 /* Desktop */
 .mapContainerDesktop {
-  height: 90vh;
+  
+  height: 80vh;
   width: 100%;
   overflow: hidden;
   border-radius: 20px;
@@ -13,10 +25,19 @@
   -o-border-radius: 20px;
 }
 
+body {margin:0;padding:0}
+
+.desktopApp {
+background-image: url("./assets/background_white.jpg");
+background-size: 50%;
+}
+
 
 
 
 /* Mobile */
+
+
 
 .mapContainer {
   height: 100%;
@@ -30,6 +51,7 @@
 }
 
 .searchWrapperMobile {
+  margin: 8px;
   display: grid;
   grid-template-rows: 1fr auto;
   height: 100vh;
