@@ -61,9 +61,6 @@ body {
 }
 /* Desktop */
 
-
-
-
 /* ZoneInformation */
 
 .infoDesktopWrapper {
@@ -74,12 +71,11 @@ body {
 }
 
 .infoDesktopColumn {
-  flex: 1 1 350px;
+  /* flex: 1 1 350px; */
   max-width: 50%;
   display: grid;
   place-items: center;
 }
-
 
 /* Right Column */
 .desktopInfoContainer {
@@ -90,8 +86,9 @@ body {
   font-weight: normal;
   max-width: 300px;
   font-size: 22px;
-  line-height: 26px;
   text-align: center;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   color: #ffffff;
 }
 
@@ -104,8 +101,14 @@ body {
   color: #ffffff;
 }
 
-
-
+.desktopInfoBodyTop {
+  margin: 0px 0px 60px 0px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: justify;
+  color: #ffffff;
+}
 
 /* Left Column */
 
@@ -116,14 +119,10 @@ body {
   /* height: 520px; */
 }
 
-
-
 .zoneText {
   margin-left: 20px;
   text-align: justify;
 }
-
-
 
 .zoneNumberContainer {
   margin: 25px 90px 25px 0px;
@@ -136,9 +135,6 @@ body {
 .zoneNumber {
   height: 46px;
 }
-
-
-
 
 .desktopHomeContainer {
   color: white;
