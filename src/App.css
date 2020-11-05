@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 
 /* Commmon */
@@ -61,6 +61,43 @@ body {
 }
 /* Desktop */
 
+.desktopHomeContainer {
+  color: white;
+  background-color: #73cb82;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.homeSearchButton {
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+}
+
+.desktopIntroContainer {
+  max-width: 213px;
+  margin-top: 13px;
+  margin-bottom: 68px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: justify;
+}
+
+.desktopBugHome {
+  height: 193px;
+  margin-top: 104px;
+  margin-bottom: 13px;
+}
+
+.desktopHomeLogoContainer {
+  display: grid;
+  place-items: center;
+}
+.navSpacer {
+  height: 72px;
+}
 .navButton {
   height: 100%;
   width: 100%;
