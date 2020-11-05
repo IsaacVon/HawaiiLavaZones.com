@@ -1,43 +1,113 @@
-/* html,body{margin:0;padding:0} */
-
-
-
+body {
+  font-family: "Roboto";
+}
 
 /* Commmon */
 
+.infoBoxZone {
+  font-weight: normal;
+  color: #6fcedc;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+}
 
+.infoBoxAddress {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  color: #467484;
+}
+
+.infoBoxName {
+  margin-top: 9px;
+  margin-bottom: 0px;
+}
+
+.infoBoxLearnMore {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 8px;
+  line-height: 9px;
+  text-decoration-line: underline;
+  color: #467484;
+}
+
+.infoBoxRightContainer {
+  text-align: center;
+}
 
 .infoWindow {
-  padding: 20px;
+  /* background-color: #f4b950; */
+  place-items: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  min-height: 120px;
+  /* grid-template-rows: 72px; */
 }
 
+.infoLogoContainer {
+  width: 166px;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #6fcedc;
+}
 
+.infoLogoContainer img {
+  width: 84px;
+}
 /* Desktop */
+
+.navButton {
+  height: 100%;
+  width: 100%;
+}
+
+.navButtonText {
+  color: white;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.navBug {
+  height: 44px;
+}
+
+.navContainer {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  background-color: #f4b950;
+  place-items: center;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 72px;
+}
+
 .mapContainerDesktop {
-  
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
 }
 
-body {margin:0;padding:0}
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .desktopApp {
-background-image: url("./assets/background_white.jpg");
-background-size: 50%;
+  background-size: 50%;
 }
 
-
-
-
 /* Mobile */
-
-
 
 .mapContainer {
   height: 100%;
@@ -74,6 +144,10 @@ background-size: 50%;
   left: 0px;
   right: 0px;
   margin: inputMargin;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .mapContainerStyle {
@@ -107,13 +181,11 @@ background-size: 50%;
 .mobileNav div {
   /* background-color: #48f523; */
   padding-bottom: 8px;
- 
 }
 
 .mobileNavSearch div {
   /* background-color: blue; */
   background-color: white;
-
 }
 
 @media only screen and (max-width: 600px) {

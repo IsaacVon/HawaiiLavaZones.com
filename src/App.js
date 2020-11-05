@@ -4,6 +4,7 @@ import { isMobile } from "react-device-detect";
 
 // Desktop
 import NavBarDesktop from "./components/desktop/navBarDesktop";
+import NavDesktop from "./components/desktop/navDesktop";
 import HomeDesktop from "./pages/desktop/homeDesktop";
 import CheckAddressDesktop from "./pages/desktop/checkAddressDesktop";
 import ZoneInformationDesktop from "./pages/desktop/zoneInfoDesktop";
@@ -25,7 +26,6 @@ function App() {
     return (
       <Router>
         <div className="desktopApp">
-          <NavBarDesktop />
           <Switch>
             <Route path="/" exact component={HomeDesktop} />
             <Route path="/Search" component={CheckAddressDesktop} />
@@ -33,6 +33,7 @@ function App() {
             <Route path="/Contact" component={ContactDesktop} />
             <Route path="/*" component={NotFoundDesktop} />
           </Switch>
+          <NavDesktop />
         </div>
       </Router>
     );

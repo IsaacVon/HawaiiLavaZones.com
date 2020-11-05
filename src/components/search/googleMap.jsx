@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 
+import bug from "../../assets/bug.png";
+
 const libraries = ["places"];
 
 const options = {
@@ -84,6 +86,9 @@ export default function CompleteMap(props) {
             }}
           />
           <InfoWindow
+            style={{
+              borderRadius: `20px`,
+            }}
             position={{
               lat: props.lat,
               lng: props.lng,
@@ -91,24 +96,46 @@ export default function CompleteMap(props) {
           >
             <>
               <div className="infoWindow">
-                <Typography color="primary" variant="h6">
-                  Lava Zone {props.lavaZone}
-                </Typography>
-                <Typography
-                  color="textSecondary"
-                  variant="body2"
-                  className={classes.pos}
-                >
-                  {props.searchAddress}
-                </Typography>
-                <Typography
-                  color="textSecondary"
-                  variant="body2"
-                  className={classes.pos}
-                ></Typography>
-                <Link href="/ZoneInformation" variant="body2" color="primary">
-                  Learn More
-                </Link>
+                <div className="infoLogoContainer">
+                  <img src={bug} alt="HawaiiLavaZones" />
+                  <p className="infoBoxName">
+                    <span
+                      style={{
+                        fontWeight: "200",
+                      }}
+                    >
+                      HAWAII
+                    </span>
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                      }}
+                    >
+                      LAVA
+                    </span>
+                    <span
+                      style={{
+                        fontWeight: "200",
+                      }}
+                    >
+                      ZONES
+                    </span>
+                  </p>{" "}
+                </div>
+
+                <div>
+                  <div className="infoBoxRightContainer">
+                    <p className="infoBoxZone">Lava Zone {props.lavaZone}</p>
+                    <p className="infoBoxAddress">{props.searchAddress}</p>
+                    <Link
+                      href="/ZoneInformation"
+                      variant="body2"
+                      color="primary"
+                    >
+                      <p className="infoBoxLearnMore">Learn More</p>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </>
           </InfoWindow>
