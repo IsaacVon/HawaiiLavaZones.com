@@ -39,7 +39,7 @@ export default function CompleteMap(props) {
   };
 
   // Use pin from search for center if it is not null.
-  const defaultCenter = { lat: 19.647822, lng: -155.53805 };
+  const defaultCenter = { lat: 19.27, lng: -155.56 };
   const pinCenter = { lat: props.lat, lng: props.lng };
   const searchViewOffsetCenter = { lat: props.lat + 0.0, lng: props.lng };
   let center = props.lat ? pinCenter : defaultCenter;

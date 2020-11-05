@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 
 // Desktop
-import NavBarDesktop from "./components/desktop/navBarDesktop";
 import NavDesktop from "./components/desktop/navDesktop";
 import HomeDesktop from "./pages/desktop/homeDesktop";
 import CheckAddressDesktop from "./pages/desktop/checkAddressDesktop";
