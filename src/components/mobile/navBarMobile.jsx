@@ -5,10 +5,8 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 
 // icons
-import logo from "../../assets/home2.svg"
 import Icon from "@material-ui/core/Icon";
 
-import FilterHdrRoundedIcon from "@material-ui/icons/FilterHdrRounded";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded";
@@ -42,7 +40,7 @@ export default function SimpleBottomNavigation() {
 
   const homeIcon = (
     <Icon>
-      <img src="../../assets/home2.svg" />
+      <img src="../../assets/home2.svg" alt="homeIcon"/>
     </Icon>
   );
 

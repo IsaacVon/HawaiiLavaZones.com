@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CompleteMap from "../../components/search/googleMap";
 import { addressToZone } from "../../utils/addressToZone";
-import Grid from "@material-ui/core/Grid";
 
 class CheckAddressDesktop extends Component {
   state = {

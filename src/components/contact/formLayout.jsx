@@ -7,7 +7,6 @@ import ContactText from "./contactText";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-import shadows from "@material-ui/core/styles/shadows";
 
 const useStyles = makeStyles((theme) => ({
 
