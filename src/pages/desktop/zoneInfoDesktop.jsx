@@ -15,7 +15,7 @@ class ZoneInfo extends Component {
   render() {
     return (
       <div className="infoDesktopWrapper">
-        <div className="infoDesktopColumn">
+        <div className="infoDesktopColumnLeft">
           <img className="desktopMap" src={map} alt="map" />
           <div className="zoneNumberContainer">
             <img className="zoneNumber" src={zone1} alt="map" />
@@ -121,10 +121,10 @@ class ZoneInfo extends Component {
             </div>
           </div>
         </div>
-        <div className="infoDesktopColumn">
-          <div className="desktopInfoContainer">
+        <div className="infoDesktopColumnRight">
+          <div className="desktopInfoContainerTop">
             <p className="desktopInfoTitle">What the Map Shows</p>
-            <p className="desktopInfoBodyTop">
+            <p className="desktopInfoBody">
               Nine lava-flow hazard zones for the volcanoes on Hawai‘i Island
               (Kīlauea, Mauna Loa, Mauna Kea, Hualālai, and Kohala) are shown on
               the map. The zones, ranked from 1 through 9, represent a scale of

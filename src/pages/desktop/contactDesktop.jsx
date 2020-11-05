@@ -7,11 +7,13 @@ class Contact extends Component {
 
   render() {
     return (
-      <GlobalContextConsumer>
-        {(context) => (
-          <InputForm submitted={context.submitted} name={context.name} />
-        )}
-      </GlobalContextConsumer>
+      <div className="contactContainerDesktop">
+        <GlobalContextConsumer>
+          {(context) => (
+            <InputForm submitted={context.submitted} name={context.name} />
+          )}
+        </GlobalContextConsumer>
+      </div>
     );
   }
 }

@@ -7,12 +7,49 @@ import ContactText from "./contactText";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
+import shadows from "@material-ui/core/styles/shadows";
 
 const useStyles = makeStyles((theme) => ({
+
+
+  
   root: {
+    ":-webkit-autofill": {
+      WebkitBoxShadow: "0 0 0 1000px green inset",
+      backgroundColor: "green"
+    },
+    fontWeight: 400,
     flexGrow: 1,
     paddingBottom: 60,
+    "& .MuiInput-underline:before": {
+      borderBottomColor: "#73CB82", // Semi-transparent underline
+    },
+    "& .MuiInput-underline:hover:before": {
+      borderBottomColor: "#73CB82", // Solid underline on hover
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#2FBB48", // Solid underline on focus
+    },
 
+    "& .MuiSlider-root": {
+      color: "#2FBB48", // Solid underline on focus
+    },
+
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "white", // Solid underline on focus
+    },
+
+    "& .MuiButton-containedPrimary": {
+      borderRadius: "20px",
+      height: "60px",
+      color: "white", // Solid underline on focus
+      fontWeight: "400",
+      boxShadow: "none",
+      backgroundColor: "#F89143",
+      "&:hover": {
+        backgroundColor: "#E27725",
+      },
+    },
   },
 }));
 
@@ -82,8 +119,7 @@ export const Form = (props) => {
             </Grid>
 
             <Grid item xs={12}>
-              <PriceSlider
-              />
+              <PriceSlider />
             </Grid>
             <Grid item xs={12}>
               <TimeSlider />
@@ -128,7 +164,7 @@ export const Form = (props) => {
               />
             </Grid>
             <Grid item xs={12} />
-            <Grid item xs={12} md={8} >
+            <Grid item xs={12} md={8}>
               <Button
                 type="submit"
                 variant="contained"

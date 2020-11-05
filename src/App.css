@@ -61,6 +61,20 @@ body {
 }
 /* Desktop */
 
+/* Contact */
+.contactContainerDesktop {
+  background-color: #90DDAE;
+  margin-bottom: 72px;
+}
+
+.contactText {
+  margin-top: 50px;
+  text-align: justify;
+  font-weight: 300;
+  color: white;
+
+}
+
 /* ZoneInformation */
 
 .infoDesktopWrapper {
@@ -70,16 +84,26 @@ body {
   background-color: #36d8f0;
 }
 
-.infoDesktopColumn {
+.infoDesktopColumnLeft {
   /* flex: 1 1 350px; */
   max-width: 50%;
   display: grid;
-  place-items: center;
+}
+
+.infoDesktopColumnRight {
+  /* flex: 1 1 350px; */
+  max-width: 50%;
+  /* display: grid; */
 }
 
 /* Right Column */
 .desktopInfoContainer {
   align-content: center;
+}
+
+.desktopInfoContainerTop {
+  align-content: center;
+  margin-top: 160px;
 }
 
 .desktopInfoTitle {
@@ -93,15 +117,6 @@ body {
 }
 
 .desktopInfoBody {
-  margin: 0px 0px 60px 0px;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: justify;
-  color: #ffffff;
-}
-
-.desktopInfoBodyTop {
   margin: 0px 0px 60px 0px;
   font-weight: 300;
   font-size: 16px;
@@ -126,7 +141,6 @@ body {
 
 .zoneNumberContainer {
   margin: 25px 90px 25px 0px;
-  margin: 25px 90px;
   color: white;
   display: flex;
   place-items: center;
@@ -141,10 +155,10 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
+  background-color: #73cb82;
 }
 
 .homeSearchButton {
-  background-color: blue;
   height: 100%;
   width: 100%;
 }
@@ -172,6 +186,7 @@ body {
 .navSpacer {
   height: 72px;
 }
+
 .navButton {
   height: 100%;
   width: 100%;

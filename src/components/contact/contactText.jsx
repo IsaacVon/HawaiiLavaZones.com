@@ -18,16 +18,10 @@ export default function ContactText() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Paper elevation={1}>
-        <Box textAlign="justify" m={2}>
-          <Typography color="textSecondary">
-            If you have any questions regarding lava zones or real estate,
-            please leave your questions and contact information. We will reach
-            out to you as soon as possible.
-          </Typography>
-        </Box>
-      </Paper>
+    <div className="contactText">
+      If you have any questions regarding lava zones or real estate, please
+      leave your questions and contact information. We will reach out to you as
+      soon as possible.
     </div>
   );
 }
