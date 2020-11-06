@@ -2,20 +2,21 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 
+
+// Common
+import Home from "./pages/desktop/homeDesktop";
+import CheckAddress from "./pages/desktop/checkAddressDesktop";
+import Contact from "./pages/desktop/contactDesktop";
+
+
 // Desktop
 import NavDesktop from "./components/desktop/navDesktop";
-import HomeDesktop from "./pages/desktop/homeDesktop";
-import CheckAddressDesktop from "./pages/desktop/checkAddressDesktop";
 import ZoneInformationDesktop from "./pages/desktop/zoneInfoDesktop";
-import ContactDesktop from "./pages/desktop/contactDesktop";
 import NotFoundDesktop from "./pages/desktop/notFoundDesktop";
 
 // Mobile
 import NavMobile from "./components/mobile/navMobile"
-import HomeMobile from "./pages/mobile/homeMobile";
-import CheckAddressMobile from "./pages/mobile/checkAddressMobile";
 import ZoneInfoMobile from "./pages/mobile/zoneInfoMobile";
-import ContactMobile from "./pages/mobile/contactMobile";
 import NotFoundMobile from "./pages/mobile/notFoundMobile";
 
 import "./App.css";
@@ -26,10 +27,10 @@ function App() {
       <Router>
         <div className="desktopApp">
           <Switch>
-            <Route path="/" exact component={HomeDesktop} />
-            <Route path="/Search" component={CheckAddressDesktop} />
+            <Route path="/" exact component={Home} />
+            <Route path="/Search" component={CheckAddress} />
             <Route path="/ZoneInformation" component={ZoneInformationDesktop} />
-            <Route path="/Contact" component={ContactDesktop} />
+            <Route path="/Contact" component={Contact} />
             <Route path="/*" component={NotFoundDesktop} />
           </Switch>
           <NavDesktop />
@@ -42,10 +43,10 @@ function App() {
       <Router>
         <div className="searchWrapperMobile">
           <Switch>
-            <Route path="/" exact component={HomeMobile} />
-            <Route path="/Search" component={CheckAddressMobile} />
+            <Route path="/" exact component={Home} />
+            <Route path="/Search" component={CheckAddress} />
             <Route path="/ZoneInformation" component={ZoneInfoMobile} />
-            <Route path="/Contact" component={ContactMobile} />
+            <Route path="/Contact" component={Contact} />
             <Route path="/*" component={NotFoundMobile} />
           </Switch>
           <NavMobile />
