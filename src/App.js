@@ -22,6 +22,9 @@ import NotFoundMobile from "./pages/mobile/notFoundMobile";
 import "./App.css";
 
 function App() {
+
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+
   if (!isMobile) {
     return (
       <Router>
