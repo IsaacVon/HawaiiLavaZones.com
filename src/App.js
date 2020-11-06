@@ -11,7 +11,7 @@ import ContactDesktop from "./pages/desktop/contactDesktop";
 import NotFoundDesktop from "./pages/desktop/notFoundDesktop";
 
 // Mobile
-import NavBarMobile from "./components/mobile/navBarMobile";
+import NavMobile from "./components/mobile/navMobile"
 import HomeMobile from "./pages/mobile/homeMobile";
 import CheckAddressMobile from "./pages/mobile/checkAddressMobile";
 import ZoneInfoMobile from "./pages/mobile/zoneInfoMobile";
@@ -48,7 +48,7 @@ function App() {
             <Route path="/Contact" component={ContactMobile} />
             <Route path="/*" component={NotFoundMobile} />
           </Switch>
-          <NavBarMobile />
+          <NavMobile />
         </div>
       </Router>
     );

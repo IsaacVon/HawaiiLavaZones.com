@@ -100,7 +100,7 @@ class CheckAddress extends Component {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     return (
-      <>
+   
           <div className="mapContainer">
             <CompleteMap
               searchAddress={this.state.searchAddress}
@@ -112,7 +112,7 @@ class CheckAddress extends Component {
               addressValid={this.state.addressValid}
             />
           </div>
-      </>
+
     );
   }
 }

@@ -218,6 +218,18 @@ body {
   grid-template-rows: 72px;
 }
 
+.navContainerMobile {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  background-color: #f4b950;
+  place-items: center;
+  display: grid;
+  grid-template-columns: 20% 25% 25% 25%;
+  grid-template-rows: 72px;
+}
+
 .mapContainerDesktop {
   height: 100vh;
   width: 100%;
@@ -238,20 +250,14 @@ body {
 .mapContainer {
   height: 100%;
   width: 100%;
-  overflow: hidden;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  overflow: hidden
 }
 
 .searchWrapperMobile {
-  margin: 8px;
   display: grid;
   grid-template-rows: 1fr auto;
-  height: 100vh;
   height: calc(var(--vh, 1vh) * 98);
+  background-color: #90DDAE;
 }
 
 .inputFieldStyle {
