@@ -4,7 +4,7 @@ const { Provider, Consumer } = React.createContext();
 
 class GlobalContextProvider extends Component {
   state = {
-    submitted: false,
+    submitted: true,
     investmentAddress: "",
     questions: "",
     name: "",
