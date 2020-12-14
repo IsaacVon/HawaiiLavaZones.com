@@ -127,13 +127,13 @@ export default function CompleteMap(props) {
                   <div className="infoBoxRightContainer">
                     <p className="infoBoxZone">Lava Zone {props.lavaZone}</p>
                     <p className="infoBoxAddress">{props.searchAddress}</p>
-                    <Link
+                    {/* <Link
                       href="/ZoneInformation"
                       variant="body2"
                       color="primary"
                     >
                       <p className="infoBoxLearnMore">Learn More</p>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
