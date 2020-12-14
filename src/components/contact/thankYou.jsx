@@ -1,19 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const Title = styled.h1`
   text-align: center;
-  color: blue;
+  color: white;
+  font-weight: 300;
+  font-size: 2em;
 `;
 
 const Information = styled.h2`
   text-align: center;
-  color: green;
+  color: white;
+  font-weight: 300;
+  font-size: 1.2em;
 `;
 
 const Wrapper = styled.section`
   display: grid;
   place-items: center;
+  padding: 0px 25px;
+  height: calc(100vh - var(--navbarHeight));
 `;
 
 export default function ThankYou(props) {

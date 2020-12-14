@@ -1,13 +1,20 @@
-
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   position: relative;
-
+  background-color: var(--greenDark);
 }
+
+:root {
+  --navbarHeight: 72px;
+  --greenDark: #73cb82;
+}
+
+
 
 /* Commmon */
 
@@ -51,7 +58,7 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
   min-height: 120px;
-  /* grid-template-rows: 72px; */
+  /* grid-template-rows: var(--navbarHeight); */
 }
 
 .infoLogoContainer {
@@ -71,8 +78,8 @@ body {
 /* Contact */
 .contactContainerDesktop {
   background-color: #90ddae;
-  height: 100vh;
-  padding-bottom: 150px;
+  height: calc(100vh - var(--navbarHeight));  
+  /* padding-bottom: 150px; */
 }
 
 .contactText {
@@ -88,7 +95,7 @@ body {
   width: 100vw;
   height: 100%;
   background-color: #36d8f0;
-  margin-bottom: 72px;
+  margin-bottom: var(--navbarHeight);
   display: grid;
   place-items: center;
 }
@@ -185,7 +192,7 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #73cb82;
+  background-color: var(--greenDark);
 }
 
 .mobileHomeContainer {
@@ -193,7 +200,7 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #73cb82;
+  background-color: var(--greenDark);
 }
 
 .homeSearchButton {
@@ -222,7 +229,7 @@ body {
   place-items: center;
 }
 .navSpacer {
-  height: 72px;
+  height: var(--navbarHeight);
 }
 
 .navButton {
@@ -253,7 +260,7 @@ body {
   place-items: center;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 72px;
+  grid-template-rows: var(--navbarHeight);
 }
 
 .navContainerMobile {
@@ -265,7 +272,7 @@ body {
   place-items: center;
   display: grid;
   grid-template-columns: 20% 25% 25% 25%;
-  grid-template-rows: 72px;
+  grid-template-rows: var(--navbarHeight);
 }
 
 .mapContainerDesktop {
@@ -292,16 +299,11 @@ body {
   overflow: hidden;
 }
 
-
-
 .searchWrapperMobile {
-  
   display: grid;
   /*  */
   height: calc(var(--vh, 1vh) * 98);
   background-color: #90ddae;
-
-  
 }
 
 .inputFieldStyle {
