@@ -251,6 +251,18 @@ body {
   height: 44px;
 }
 
+.navWrapper {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  color: white;
+  background-color: #f4b950;
+  place-items: center;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: var(--navbarHeight);
+}
+
 .navContainer {
   position: fixed;
   width: 100%;

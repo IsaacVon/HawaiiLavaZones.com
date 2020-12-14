@@ -2,29 +2,28 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 
-
 // Common
 import Home from "./pages/desktop/homeDesktop";
 import CheckAddress from "./pages/desktop/checkAddressDesktop";
 import Contact from "./pages/desktop/contactDesktop";
-
+import Nav from "./components/desktop/nav";
 
 // Desktop
-import NavDesktop from "./components/desktop/navDesktop";
 import ZoneInformationDesktop from "./pages/desktop/zoneInfoDesktop";
 import NotFoundDesktop from "./pages/desktop/notFoundDesktop";
 
 // Mobile
-import NavMobile from "./components/mobile/navMobile"
 import ZoneInfoMobile from "./pages/mobile/zoneInfoMobile";
 import NotFoundMobile from "./pages/mobile/notFoundMobile";
 
 import "./App.css";
 
 function App() {
-
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
-
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight / 100}px`
+  );
+  console.log("isMobile", isMobile);
   if (!isMobile) {
     return (
       <Router>
@@ -36,7 +35,7 @@ function App() {
             <Route path="/Contact" component={Contact} />
             <Route path="/*" component={NotFoundDesktop} />
           </Switch>
-          <NavDesktop />
+          <Nav />
         </div>
       </Router>
     );
@@ -52,7 +51,7 @@ function App() {
             <Route path="/Contact" component={Contact} />
             <Route path="/*" component={NotFoundMobile} />
           </Switch>
-          <NavMobile />
+          <Nav />
         </div>
       </Router>
     );
