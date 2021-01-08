@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 
@@ -19,11 +19,43 @@ import NotFoundMobile from "./pages/mobile/notFoundMobile";
 import "./App.css";
 
 function App() {
+  const [mobileView, setmobileView] = useState(isMobile);
+
   document.documentElement.style.setProperty(
     "--vh",
     `${window.innerHeight / 100}px`
   );
-  console.log("isMobile", isMobile);
+
+  const handleResize = () => {
+
+    if (window.innerWidth <= 705 && !mobileView) {
+      setmobileView(true);
+      console.log("mobile")
+      console.log("mobileView", mobileView)
+
+
+    }
+    
+    if (window.innerWidth > 705 && mobileView) {
+      setmobileView(false);
+      console.log("desktop")
+      console.log("mobileView", mobileView)
+
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // console.log("mobileView", mobileView);
+  // console.log("isMobile", isMobile);
+
+
+
   if (!isMobile) {
     return (
       <Router>
